@@ -1,3 +1,3 @@
-export const container = () => ({
-  backgroundColor: "",
+export const container = ({ theme }) => ({
+  backgroundColor: theme.colors.primary,
 });

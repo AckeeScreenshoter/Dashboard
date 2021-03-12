@@ -1,1 +1,2 @@
-export { default as colors } from "./colors.less";
+// @ts-nocheck
+export { locals as colors } from "./colors.js";
