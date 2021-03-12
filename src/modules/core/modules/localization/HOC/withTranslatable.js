@@ -1,4 +1,4 @@
 import { translatableFactory } from "@ackee/jerome";
-import { intlData } from "../config";
+import { antdData, intlData } from "../config";
 
-export default translatableFactory(intlData);
+export default translatableFactory(intlData, antdData);
