@@ -1,13 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button } from "antd";
+import useFelaEnhanced from "hooks/useFelaEnhanced";
+import * as rules from "./HomePage.styles";
 
-const HomePage = ({ styles }) => (
-  <div className={styles.container}>
-    <h1>HomePage</h1>
-    <Button type='primary'>Primary</Button>
-  </div>
-);
+const HomePage = () => {
+  const { styles } = useFelaEnhanced(rules);
+
+  return (
+    <div className={styles.container}>
+      <h1>HomePage</h1>
+    </div>
+  );
+};
 
 HomePage.propTypes = {
   styles: PropTypes.shape({
