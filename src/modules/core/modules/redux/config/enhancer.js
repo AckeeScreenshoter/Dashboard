@@ -1,7 +1,6 @@
 import { isServerEnv } from "constants/index";
 import Config from "config";
 import { error } from "config/loglevel";
-import { sentryMiddleware } from "../../sentry";
 import createSagaMiddleware from "redux-saga";
 import { applyMiddleware, compose } from "redux";
 import { routerMiddlewareWithHistory } from "../../router";
@@ -11,11 +10,7 @@ export default function configureEnhancer() {
     onError: error,
   });
 
-  const middlewares = [
-    routerMiddlewareWithHistory,
-    sagaMiddleware,
-    sentryMiddleware,
-  ];
+  const middlewares = [routerMiddlewareWithHistory, sagaMiddleware];
   const enhancerArgs = [applyMiddleware(...middlewares)];
 
   if (Config.devTools && isServerEnv) {

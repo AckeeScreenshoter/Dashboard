@@ -10,10 +10,6 @@ const defaults = {
   // default configuration goes here
   appName: REACT_APP_NAME,
   devTools: isEnvDevelopment,
-  sentry: {
-    // TODO: add PUBLIC 'dsn' of your project here:
-    dsn: "",
-  },
   api: {
     signIn: "/v1/auth/sign-in",
     me: "/v1/users/me",

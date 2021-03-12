@@ -11,6 +11,8 @@ export const rendererConfig = {
   theme,
 };
 
+export const staticCSS = [];
+
 export const fonts = [
   // {
   //     name: '',
