@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import useFelaEnhanced from "hooks/useFelaEnhanced";
-import * as rules from "./HomePage.styles";
+import * as felaRules from "./HomePage.styles";
 
 const HomePage = () => {
-  const { styles } = useFelaEnhanced(rules);
+  const { styles } = useFelaEnhanced(felaRules);
 
   return (
     <div className={styles.container}>
