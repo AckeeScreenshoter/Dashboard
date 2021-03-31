@@ -12,7 +12,7 @@ const Header = () => {
     <header className={styles.container}>
       <Logo />
       <div>
-        <FormattedMessage id="header.madeWithLove" />{" "}
+        <FormattedMessage id="page.header.madeWithLove" />{" "}
         <a href="https://ackee.cz" target="_blank" rel="noreferrer">
           Ackee
         </a>

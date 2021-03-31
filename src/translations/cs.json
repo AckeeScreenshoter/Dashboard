@@ -1,3 +1,5 @@
 {
-  "page.helloWorld": "hello world!"
+  "page.projectName": "ass",
+  "page.header.madeWithLove": "Made with love in",
+  "error.general": "Chyba!"
 }
