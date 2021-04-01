@@ -4,6 +4,7 @@ import App from "modules/application";
 import Core from "modules/core";
 
 import "antd/dist/antd.css";
+import "./styles/general.css";
 
 ReactDOM.render(
   <Core>

@@ -2,13 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import useFelaEnhanced from "hooks/useFelaEnhanced";
 import * as felaRules from "./HomePage.styles";
+import Header from "../Header";
 
 const HomePage = () => {
   const { styles } = useFelaEnhanced(felaRules);
 
   return (
     <div className={styles.container}>
-      <h1>HomePage</h1>
+      <Header />
     </div>
   );
 };

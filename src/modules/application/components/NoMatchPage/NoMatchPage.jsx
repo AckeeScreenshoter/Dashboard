@@ -1,14 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
+import useFelaEnhanced from "hooks/useFelaEnhanced";
 
-const NoMatchPage = ({ styles }) => {
+import * as felaRules from "./NoMatchPage.styles";
+
+const NoMatchPage = () => {
+  const { styles } = useFelaEnhanced(felaRules);
   return <div className={styles.container}>NoMatchPage</div>;
 };
 
-NoMatchPage.propTypes = {
-  styles: PropTypes.shape({
-    container: PropTypes.string.isRequired,
-  }).isRequired,
-};
+NoMatchPage.propTypes = {};
 
 export default NoMatchPage;
