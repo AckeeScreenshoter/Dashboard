@@ -11,5 +11,17 @@ export const button = ({ theme, type }) => {
       color = theme.colors.text;
       break;
   }
-  return { color };
+  return {
+    color,
+    textTransform: "uppercase",
+    border: "none",
+    boxShadow: "none",
+    paddingLeft: 0,
+    fontWeight: 500,
+    letterSpacing: 0.4,
+
+    "& .anticon": {
+      marginRight: ".5rem",
+    },
+  };
 };
