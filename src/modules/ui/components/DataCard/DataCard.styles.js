@@ -13,7 +13,7 @@ export const card = ({ theme }) => ({
     marginBottom: ".5rem",
   },
 
-  "& .ant-card-body": {
+  "& > .ant-card-body": {
     paddingLeft: "1rem",
     paddingTop: 0,
     paddingBottom: 0,
@@ -24,16 +24,16 @@ export const card = ({ theme }) => ({
     flexBasis: "69%",
   },
 
-  "& .ant-card-cover": {
+  "& > .ant-card-cover": {
     flexBasis: "31%",
 
-    "& img": {
+    "& > img": {
       width: "100%",
       objectFit: "cover",
     },
   },
 
-  "&:hover": {
+  ":hover": {
     borderColor: theme.colors.primaryBorderHover,
     boxShadow: `5px 5px 20px 0px ${theme.colors.primaryShadow}`,
 
@@ -59,7 +59,7 @@ export const cardHeader = ({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
 
-  "& .anticon": {
+  "& > .anticon": {
     color: theme.colors.icon,
   },
 });
