@@ -1,2 +1,9 @@
 // @ts-nocheck
-export { locals as colors } from "./colors.js";
+import { colors } from "./colors.js";
+
+const theme = {
+  colors,
+  borderRadius: "6px",
+};
+
+export default theme;
