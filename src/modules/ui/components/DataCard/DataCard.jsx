@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Typography } from "antd";
 import { FormattedMessage } from "react-intl";
-import dayjs from "dayjs";
+import { format } from 'date-fns'
 import { AndroidFilled, AppleFilled, CopyOutlined } from "@ant-design/icons";
 
 import videoImg from "assets/images/thumbnail_vid.png";
@@ -28,7 +28,7 @@ const DataCard = ({ message }) => {
         <div className={styles.cardHeader}>
           <div>
             <Typography.Text className={styles.createdAt}>
-              {dayjs(message.date.seconds * 1000).format("DD. MM. YYYY, HH:mm")}
+              {format(message.date.seconds * 1000, "dd. mm. yyyy, HH:mm")}
             </Typography.Text>
             <Typography.Title level={3}>{message.appName}</Typography.Title>
           </div>
