@@ -1,19 +1,20 @@
-import React from "react";
-import useFelaEnhanced from "hooks/useFelaEnhanced";
-import * as felaRules from "./HomePage.styles";
-import Header from "../Header";
-import ReportsList from "modules/reports";
+import React from 'react';
+import useFelaEnhanced from 'hooks/useFelaEnhanced';
+
+import Header from '../Header';
+import ReportsList from 'modules/reports';
+import * as felaRules from './HomePage.styles';
 
 const HomePage = () => {
-  const { styles } = useFelaEnhanced(felaRules);
+    const { styles } = useFelaEnhanced(felaRules);
 
-  return (
-    <div className={styles.container}>
-      <Header />
+    return (
+        <div className={styles.container}>
+            <Header />
 
-      <ReportsList />
-    </div>
-  );
+            <ReportsList />
+        </div>
+    );
 };
 
 export default HomePage;

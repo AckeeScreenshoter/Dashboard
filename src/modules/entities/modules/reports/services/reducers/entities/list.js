@@ -1,12 +1,11 @@
 import { fetchReportsTypes } from '../../actions';
 
-export default function listReportsReducer(state = [], action) {
+const initialState = [];
+
+export default function listReportsReducer(state = initialState, action) {
     switch (action.type) {
         case fetchReportsTypes.FETCH_REPORTS_SUCCESS:
-            return {
-                ...state,
-                ...action.payload,
-            };
+            return [...state, ...action.payload];
 
         default:
             return state;
