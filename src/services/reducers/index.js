@@ -1,7 +1,7 @@
 import routingHistory from "@ackee/chris/routing-history";
 
-import api from "./api";
-import entities from "./entities";
+import { apiReducer } from "modules/entities";
+import { entityReducer } from "modules/entities"
 
 const { reducer: history } = routingHistory;
 
@@ -9,9 +9,9 @@ const { reducer: history } = routingHistory;
 // Do not use combineReducers() here,
 // export reducers as plain object, not as a function.
 const reducers = {
-	api,
-	entities,
-	history,
+  api: apiReducer,
+  entities: entityReducer,
+  history,
 };
 
 export default reducers;

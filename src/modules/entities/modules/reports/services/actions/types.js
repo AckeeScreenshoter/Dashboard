@@ -1,7 +1,22 @@
-const messagesPrefix = 'messages';
+import { EntityKeys } from "constants/entities";
 
-export const FETCH_MESSAGES_REQUEST = messagesPrefix + '/FETCH_MESSAGES_REQUEST';
-export const FETCH_MESSAGES_SUCCESS = messagesPrefix + '/FETCH_MESSAGES_SUCCESS';
-export const FETCH_MESSAGES_FAILURE = messagesPrefix + '/FETCH_MESSAGES_FAILURE';
-export const FETCH_MESSAGES_CANCEL = messagesPrefix + '/FETCH_MESSAGES_CANCEL';
-export const FETCH_MESSAGES_RESET = messagesPrefix + '/FETCH_MESSAGES_RESET';
+import { strictObjectAccess, createApiRequestType } from "@ackee/redux-utils";
+
+const modulePrefix = EntityKeys.REPORTS;
+
+export const apiRequestType = createApiRequestType({
+  modulePrefix,
+});
+
+export const FetchReportsTypes = apiRequestType({
+  typePrefix: "FETCH_REPORTS_",
+});
+
+export const SinglesTypes = {
+  FETCH_REPORTS: `${modulePrefix}/FETCH_REPORTS`,
+};
+
+export default strictObjectAccess({
+  ...FetchReportsTypes,
+  ...SinglesTypes,
+});

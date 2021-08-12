@@ -1,0 +1,22 @@
+{
+    // TODO Fix ackee config
+    // "extends": ["@ackee/eslint-config", "prettier"],
+    "extends": [],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"],
+                "extensions": [".js", ".jsx"]
+            }
+        },
+        "polyfills": ["Object.fromEntries"]
+    },
+    "rules": {
+        "no-restricted-globals": "off",
+        "react/jsx-props-no-spreading": "off",
+        "import/no-anonymous-default-export": "off"
+    },
+    "globals": {
+        "chrome": true
+    }
+}

@@ -1,4 +1,3 @@
-import { isServerEnv } from "constants/index";
 import Config from "config";
 import { error } from "config/loglevel";
 import createSagaMiddleware from "redux-saga";

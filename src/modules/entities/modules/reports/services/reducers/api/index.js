@@ -1,6 +1,9 @@
-import { combineReducers } from 'redux';
-import list from './list';
+import { ApiTypes } from "constants/entities";
+
+import { combineReducers } from "redux";
+
+import get from "./get";
 
 export default combineReducers({
-    list,
+  [ApiTypes.GET]: get,
 });

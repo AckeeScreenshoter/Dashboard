@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects';
 import fetchReports from './fetchReports';
 
-export default function* messages() {
+export default function* reports() {
     yield all([fetchReports()]);
 }
