@@ -1,7 +1,7 @@
-import { all } from 'redux-saga/effects';
+import { all } from "redux-saga/effects";
 
-import { saga as messages } from '../modules/reports';
+import { saga as messages } from "../modules/reports";
 
 export default function* entitiesSaga() {
-    yield all([messages()]);
+	yield all([messages()]);
 }

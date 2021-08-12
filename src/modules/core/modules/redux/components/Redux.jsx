@@ -5,13 +5,13 @@ import PropTypes from "prop-types";
 import { configureStore } from "../config";
 
 function Redux({ children }) {
-  const store = configureStore();
+	const store = configureStore();
 
-  return <Provider store={store}>{children}</Provider>;
+	return <Provider store={store}>{children}</Provider>;
 }
 
 Redux.propTypes = {
-  children: PropTypes.node.isRequired,
+	children: PropTypes.node.isRequired,
 };
 
 export default Redux;
