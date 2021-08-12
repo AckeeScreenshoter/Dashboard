@@ -1,7 +1,5 @@
 {
-    // TODO Fix ackee config
-    // "extends": ["@ackee/eslint-config", "prettier"],
-    "extends": [],
+    "extends": ["@ackee/eslint-config", "prettier"],
     "settings": {
         "import/resolver": {
             "node": {
