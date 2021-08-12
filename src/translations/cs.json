@@ -1,5 +1,8 @@
 {
-  "page.projectName": "ass",
-  "page.header.madeWithLove": "Made with love in",
-  "error.general": "Chyba!"
+    "page.projectName": "ass",
+    "page.header.madeWithLove": "Made with love in",
+    "error.general": "Chyba!",
+
+    "card.button.delete": "Delete",
+    "card.button.copy": "Copy"
 }

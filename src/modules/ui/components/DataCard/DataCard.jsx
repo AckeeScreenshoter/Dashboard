@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card, Typography } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { format } from 'date-fns';
@@ -41,6 +42,20 @@ const DataCard = ({ message }) => {
             </div>
         </Card>
     );
+};
+
+DataCard.propTypes = {
+    message: PropTypes.shape({
+        mediaUploaded: PropTypes.bool,
+        image: PropTypes.string,
+        appName: PropTypes.string,
+        date: PropTypes.shape({
+            seconds: PropTypes.number,
+            nanoseconds: PropTypes.number,
+        }),
+        deviceMake: PropTypes.string,
+        note: PropTypes.string,
+    }),
 };
 
 export default DataCard;

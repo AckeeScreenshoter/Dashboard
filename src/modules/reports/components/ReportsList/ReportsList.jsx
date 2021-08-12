@@ -10,16 +10,15 @@ import * as felaRules from './ReportsList.styles';
 const ReportsList = () => {
     const { styles } = useFelaEnhanced(felaRules);
     const dispatch = useDispatch();
-    dispatch(actions.fetchReportsRequest());
 
+    dispatch(actions.fetchReportsRequest());
     const data = useSelector(state => reportsSelectors.reportsSelector(state));
-    console.log(data);
 
     return (
         <div className={styles.container}>
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                 {data.map(message => (
-                    <Col md={8}>
+                    <Col md={8} key={message.date?.seconds}>
                         <DataCard message={message} />
                     </Col>
                 ))}

@@ -14,7 +14,7 @@ const mockData = [
         bundleId: 'com.flashnews.livesportnews.devapi.beta',
         customData: [],
         date: {
-            nanoseconds: 909000000,
+            nanoseconds: 909100000,
             seconds: 1604401761,
         },
         deviceMake: 'samsung',
@@ -30,7 +30,7 @@ const mockData = [
         bundleId: 'cz.ackee.flash-news.development.beta',
         date: {
             nanoseconds: 909000000,
-            seconds: 1604401761,
+            seconds: 1604501761,
         },
         deviceMake: 'Apple',
         deviceModel: 'iPhone8,4 (iPhone SE)',
