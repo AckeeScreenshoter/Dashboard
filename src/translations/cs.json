@@ -1,5 +1,20 @@
 {
-  "page.projectName": "ass",
-  "page.header.madeWithLove": "Made with love in",
-  "error.general": "Chyba!"
+	"page.projectName": "ass",
+	"page.header.madeWithLove": "Made with love in",
+	"error.general": "Chyba!",
+	"card.button.copy": "Kopírovat odkaz",
+	"card.button.delete": "Odstranit",
+
+	"card.detail.appName": "Název aplikace",
+	"card.detail.os": "OS",
+	"card.detail.device": "Zařízení",
+	"card.detail.appVersion": "Verze aplikace",
+	"card.detail.dateTime": "Datum",
+	"card.detail.id": "ID",
+	"card.detail.osVersion": "Verze OS",
+	"card.detail.mediaUploaded": "mediaUploaded",
+	"card.detail.deviceMake": "deviceMake",
+	"card.detail.bundleId": "bundleId",
+	"card.detail.customData": "customData",
+	"card.detail.buildNumber": "buildNumber"
 }
