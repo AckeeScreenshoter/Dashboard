@@ -1,10 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import firebase from "firebase/app";
 import "firebase/firestore";
-// import * as serviceWorker from "serviceWorker";
 
-import { firebaseConfig } from "../modules/firebase";
 import { Fela } from "../modules/fela";
 import { Redux } from "../modules/redux";
 import { Router } from "../modules/router";
@@ -19,8 +16,6 @@ import Enhancers from "../containers/Enhancers";
 // Config.plugins.serviceWorker
 //   ? serviceWorker.register()
 //   : serviceWorker.unregister();
-
-firebase.initializeApp(firebaseConfig);
 
 function Core({ children }) {
   return (
