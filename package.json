@@ -52,6 +52,10 @@
         }
     },
     "lint-staged": {
+        "*.{js,jsx,json,scss,less,css,md}": [
+            "yarn format",
+            "git add"
+        ],
         "**/*.{png,jpeg,jpg,gif,svg}": [
             "imagemin-lint-staged",
             "git add"

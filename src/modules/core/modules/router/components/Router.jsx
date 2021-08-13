@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { ConnectedRouter } from "connected-react-router";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { ConnectedRouter } from 'connected-react-router';
 
-import { history } from "../config";
+import { history } from '../config';
 
 function Router({ children }) {
-  return <ConnectedRouter history={history}>{children}</ConnectedRouter>;
+    return <ConnectedRouter history={history}>{children}</ConnectedRouter>;
 }
 
 Router.propTypes = {
-  children: PropTypes.node.isRequired,
+    children: PropTypes.node.isRequired,
 };
 
 export default Router;

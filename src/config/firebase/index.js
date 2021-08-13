@@ -1,8 +1,8 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/storage";
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/storage';
 
-import config from "./config";
+import config from './config';
 
 // Initialize firebase instance
 const app = firebase.initializeApp(config);

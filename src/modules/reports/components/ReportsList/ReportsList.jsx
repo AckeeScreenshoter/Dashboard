@@ -1,30 +1,35 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
-import { actions, selectors as reportsSelectors } from 'modules/entities/modules/reports';
-import { DataCard } from 'modules/ui';
+import PropTypes from 'prop-types';
 
+import { DataCard, CardDetail } from 'modules/ui';
 import * as felaRules from './ReportsList.styles';
 
-const ReportsList = () => {
+const ReportsList = ({ data }) => {
     const { styles } = useFelaEnhanced(felaRules);
-    const dispatch = useDispatch();
+    const [detailData, setDetailData] = React.useState(null);
 
-    dispatch(actions.fetchReportsRequest());
-    const data = useSelector(state => reportsSelectors.reportsSelector(state));
+    const handleCancel = () => {
+        setDetailData(null);
+    };
 
     return (
         <div className={styles.container}>
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                 {data.map(message => (
-                    <Col md={8} key={message.date?.seconds}>
-                        <DataCard message={message} />
+                    <Col className={styles.item} md={12} lg={8} key={message.date?.seconds}>
+                        <DataCard message={message} onClick={() => setDetailData(message)} />
                     </Col>
                 ))}
             </Row>
+
+            {detailData ? <CardDetail visible={!!detailData} onCancel={handleCancel} message={detailData} /> : null}
         </div>
     );
+};
+ReportsList.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default ReportsList;

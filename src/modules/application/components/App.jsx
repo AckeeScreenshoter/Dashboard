@@ -1,7 +1,10 @@
 import { Container } from 'modules/ui';
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import Header from './Header';
 import HomePage from './HomePage';
+import Login from './Login';
+
 import NoMatchPage from './NoMatchPage';
 
 const routes = [
@@ -10,12 +13,11 @@ const routes = [
         component: HomePage,
         exact: true,
     },
-    // // @use-auth-module-begin
-    // {
-    //   path: "/auth",
-    //   component: Login,
-    // },
-    // // @use-auth-module-end
+
+    {
+        path: '/auth',
+        component: Login,
+    },
     {
         component: NoMatchPage,
     },
@@ -24,6 +26,7 @@ const routes = [
 const App = () => {
     return (
         <Container>
+            <Header />
             <Switch>
                 {routes.map(route => (
                     <Route {...route} key={route} />

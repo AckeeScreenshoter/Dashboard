@@ -45,17 +45,22 @@ const mockData = [
 
 function* fetchReports() {
     try {
-        // TODO: Use limit and startAt and endAt for pagination - DONT DELETE THE LIMIT - it causes exceeding firestore plan and ban for 1 day
-        // TODO: uncomment when quota it not exceeded anymore
+        console.log('hi');
+        const snapshot = yield firestore.collection('messages').limit(25).get();
 
-        // const collectionRef = yield firestore.collection("messages").limit(25);
-        // const data = yield collectionRef.get().then((querySnapshot) => {
-        //   querySnapshot.forEach((documentSnapshot) => {
-        //     return documentSnapshot.data();
-        //   });
+        const data = [];
+        snapshot.forEach(documentSnapshot => {
+            data.push(documentSnapshot.data());
+        });
+
+        // const collectionRef = yield firestore.collection('messages').limit(25);
+        // const data = yield collectionRef.get().then(querySnapshot => {
+        //     querySnapshot.forEach(documentSnapshot => {
+        //         console.log(documentSnapshot.data());
+        //         return documentSnapshot.data();
+        //     });
         // });
         // TODO: delete when quota it not exceeded anymore
-        const data = mockData;
 
         yield put(actions.fetchReportsSuccess(data));
     } catch (error) {
