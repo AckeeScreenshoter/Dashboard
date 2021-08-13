@@ -1,4 +1,3 @@
-import { isServerEnv } from "constants/index";
 import { createStore } from "redux";
 import { END } from "redux-saga";
 
@@ -16,9 +15,7 @@ export default function configureStore() {
   store.runSaga = sagaMiddleware.run;
   store.close = () => store.dispatch(END);
 
-  if (isServerEnv) {
-    store.runSaga(rootSaga);
-  }
+  store.runSaga(rootSaga);
 
   return store;
 }

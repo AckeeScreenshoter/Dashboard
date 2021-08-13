@@ -1,17 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import useFelaEnhanced from "hooks/useFelaEnhanced";
-import * as felaRules from "./Container.styles";
+import React from 'react';
+import { childrenPropType } from '@ackee/lucas';
+import useFelaEnhanced from 'hooks/useFelaEnhanced';
+import * as felaRules from './Container.styles';
 
 const Container = ({ children }) => {
-	const { styles } = useFelaEnhanced(felaRules);
-	return <main className={styles.container}>{children}</main>;
+    const { styles } = useFelaEnhanced(felaRules);
+    return <main className={styles.container}>{children}</main>;
 };
 
 Container.propTypes = {
-	styles: PropTypes.shape({
-		container: PropTypes.string.isRequired,
-	}).isRequired,
+    children: childrenPropType.isRequired,
 };
 
 export default Container;
