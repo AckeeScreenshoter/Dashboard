@@ -1,9 +1,9 @@
 const firebaseConfig = {
-    apiKey: 'AIzaSyD_khpAb2UGCYosH-d2wytpsa72fogdBUs',
-    authDomain: 'screenshooterapp.firebaseapp.com',
-    databaseURL: 'https://screenshooterapp.firebaseio.com',
-    projectId: 'screenshooterapp',
-    storageBucket: 'screenshooterapp.appspot.com',
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+    projectId: process.env.REACT_APP_FIREABSE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
 };
 

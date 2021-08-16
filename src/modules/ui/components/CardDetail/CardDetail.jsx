@@ -125,7 +125,7 @@ CardDetail.propTypes = {
         note: PropTypes.string,
         osVersion: PropTypes.string,
         appVersion: PropTypes.string,
-        bundleId: PropTypes.number,
+        bundleId: PropTypes.string,
         buildNumber: PropTypes.number,
         deviceModel: PropTypes.string,
     }),

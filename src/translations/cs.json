@@ -18,7 +18,7 @@
     "card.detail.bundleId": "bundleId",
     "card.detail.customData": "customData",
     "card.detail.buildNumber": "buildNumber",
-
+    "button.logout": "Log out",
     "login.card.title": "Sign into ASS",
     "login.card.googleButton": "Sign in with Google"
 }

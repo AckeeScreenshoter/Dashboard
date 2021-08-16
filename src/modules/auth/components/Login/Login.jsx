@@ -1,4 +1,4 @@
-import { React, PropTypes, FormattedMessage, useDispatch, Auth, useSelector } from '../../dependencies';
+import { React, FormattedMessage, useDispatch, Auth, useSelector } from '../../dependencies';
 
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
 import Button from 'modules/ui/components/Button';
@@ -28,10 +28,6 @@ const Login = () => {
             </Card>
         </div>
     );
-};
-
-Login.propTypes = {
-    styles: PropTypes.shape().isRequired,
 };
 
 export default React.memo(Login);

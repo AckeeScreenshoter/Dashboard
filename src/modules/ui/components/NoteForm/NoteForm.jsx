@@ -1,19 +1,34 @@
-import Button from '../Button';
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Form, Input } from 'antd';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
+import PropTypes from 'prop-types';
+
 import * as felaRules from './NoteForm.styles';
+import Button from '../Button';
+
+const { TextArea } = Input;
 
 const NoteForm = ({ note }) => {
     const { styles } = useFelaEnhanced(felaRules);
+    const [form] = Form.useForm();
+    const [isTouched, setIsTouched] = React.useState();
 
     return (
-        <form>
-            <textarea className={styles.TextArea} value={note} />
+        <Form form={form}>
+            <TextArea
+                onChange={() => {
+                    setIsTouched(true);
+                }}
+                value={note}
+                name="note"
+                className={styles.TextArea}
+            />
             <div className={styles.ButtonBox}>
-                <Button type="secondary">Save</Button>
+                <Button htmlType="submit" disabled={!isTouched} type="primary">
+                    Save
+                </Button>
             </div>
-        </form>
+        </Form>
     );
 };
 NoteForm.propTypes = {

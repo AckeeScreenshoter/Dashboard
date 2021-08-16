@@ -16,7 +16,7 @@ export default function AuthRoutes() {
         <>
             <Switch>
                 {routes.map((route, index) => (
-                    <Route key={index} exact {...route} />
+                    <Route key={index.toString()} exact {...route} />
                 ))}
             </Switch>
         </>

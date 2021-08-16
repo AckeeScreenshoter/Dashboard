@@ -18,7 +18,7 @@ export function* autoSignIn(mediation = 'optional') {
 
     if (credentials && credentials.type === 'federated' && credentials.provider === GOOGLE_PROVIDER) {
         AuthProviders.google.setCustomParameters({
-            login_hint: credentials.id,
+            LOGIN_HINT: credentials.id,
         });
 
         yield put(signInRequest());
