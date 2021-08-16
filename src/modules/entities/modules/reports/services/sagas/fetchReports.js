@@ -45,7 +45,7 @@ import { fetchReports as actions, fetchReportsTypes } from '../actions';
 
 function* fetchReports() {
     try {
-        const snapshot = yield firestore.collection('messages').limit(25).get();
+        const snapshot = yield firestore.collection('messages').limit(1).get();
 
         const data = [];
         snapshot.forEach(documentSnapshot => {
