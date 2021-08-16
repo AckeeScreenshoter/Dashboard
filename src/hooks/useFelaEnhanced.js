@@ -1,57 +1,57 @@
-import React from "react";
-import { combineMultiRules } from "fela-tools";
-import { useFela } from "react-fela";
+import React from 'react';
+import { combineMultiRules } from 'fela-tools';
+import { useFela } from 'react-fela';
 
 // This solution is based on the implementation of [connect binding](https://github.com/robinweser/fela/blob/master/packages/fela-bindings/src/connectFactory.js) from fela
 export default function useFelaEnhanced(rules, { extend, ...otherProps } = {}) {
-  const { theme, renderer } = useFela();
+    const { theme, renderer } = useFela();
 
-  const allRules = [rules];
+    const allRules = [rules];
 
-  if (extend) {
-    allRules.push(extend);
-  }
+    if (extend) {
+        allRules.push(extend);
+    }
 
-  const combinedRules = combineMultiRules(...allRules);
+    const combinedRules = combineMultiRules(...allRules);
 
-  const preparedRules = combinedRules(
-    {
-      ...otherProps,
-      theme,
-    },
-    renderer
-  );
-
-  const styles = Object.keys(preparedRules).reduce((styleMap, name) => {
-    const preparedRule = preparedRules[name];
-
-    styleMap[name] = renderer.renderRule(preparedRule, {
-      ...otherProps,
-      theme,
-    });
-
-    return styleMap;
-  }, {});
-
-  const boundRules = Object.keys(preparedRules).reduce((ruleMap, name) => {
-    ruleMap[name] = (props) =>
-      preparedRules[name](
+    const preparedRules = combinedRules(
         {
-          theme,
-          ...props,
+            ...otherProps,
+            theme,
         },
-        renderer
-      );
+        renderer,
+    );
 
-    return ruleMap;
-  }, {});
+    const styles = Object.keys(preparedRules).reduce((styleMap, name) => {
+        const preparedRule = preparedRules[name];
 
-  return React.useMemo(
-    () => ({
-      styles,
-      rules: boundRules,
-      theme,
-    }),
-    [styles, theme, boundRules]
-  );
+        styleMap[name] = renderer.renderRule(preparedRule, {
+            ...otherProps,
+            theme,
+        });
+
+        return styleMap;
+    }, {});
+
+    const boundRules = Object.keys(preparedRules).reduce((ruleMap, name) => {
+        ruleMap[name] = props =>
+            preparedRules[name](
+                {
+                    theme,
+                    ...props,
+                },
+                renderer,
+            );
+
+        return ruleMap;
+    }, {});
+
+    return React.useMemo(
+        () => ({
+            styles,
+            rules: boundRules,
+            theme,
+        }),
+        [styles, theme, boundRules],
+    );
 }

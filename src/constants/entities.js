@@ -1,16 +1,19 @@
 export const EntityKeys = {
-  REPORTS: "reports",
+    REPORTS: 'reports',
+    AUTH: 'auth',
+    USER: 'user',
 };
 
 export const ApiKeys = {
-  ...EntityKeys,
-  REPORT: "report",
+    ...EntityKeys,
+    REPORT: 'report',
+    AUTH: 'auth',
 };
 
 export const ApiTypes = {
-  GET: "get",
-  POST: "post",
-  PUT: "put",
-  PATCH: "patch",
-  DELETE: "delete",
+    GET: 'get',
+    POST: 'post',
+    PUT: 'put',
+    PATCH: 'patch',
+    DELETE: 'delete',
 };

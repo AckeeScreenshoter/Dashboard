@@ -3,7 +3,10 @@ import { colors } from './colors.js';
 
 const theme = {
     colors,
-    borderRadius: '6px',
+    borderRadiuses: {
+        small: '6px',
+        medium: '12px',
+    },
 };
 
 export default theme;

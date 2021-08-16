@@ -1,11 +1,12 @@
 export const card = ({ theme }) => ({
     display: 'flex',
     alignItems: 'stretch',
-    padding: '1rem',
-    borderRadius: theme.borderRadius,
+    padding: '0.7rem',
+    borderRadius: theme.borderRadiuses.small,
     border: `2px solid ${theme.colors.white}`,
     boxShadow: `5px 5px 20px 0px ${theme.colors.secondaryShadow}`,
     height: '100%',
+    width: '100%',
 
     '& h3.ant-typography': {
         fontSize: '1.125rem',
@@ -14,23 +15,17 @@ export const card = ({ theme }) => ({
     },
 
     '& > .ant-card-body': {
-        paddingLeft: '1rem',
-        paddingTop: 0,
-        paddingBottom: 0,
-        paddingRight: 0,
+        padding: '0',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        flexBasis: '69%',
+        width: '100%',
     },
 
-    '& > .ant-card-cover': {
-        flexBasis: '31%',
-
-        '& > img': {
-            width: '100%',
-            objectFit: 'cover',
-        },
+    '&  img': {
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
     },
 
     ':hover': {
@@ -46,6 +41,7 @@ export const card = ({ theme }) => ({
 export const contentWrapper = () => ({
     display: 'flex',
     flexDirection: 'column',
+    paddingLeft: '1rem',
     justifyContent: 'space-between',
     height: '100%',
 });

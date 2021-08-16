@@ -16,6 +16,7 @@ export const button = ({ theme, type }) => {
         textTransform: 'uppercase',
         border: 'none',
         boxShadow: 'none',
+        fontSize: '90%',
         paddingLeft: 0,
         fontWeight: 500,
         letterSpacing: 0.4,

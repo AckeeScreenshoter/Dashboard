@@ -8,6 +8,7 @@
         "husky": "3.x",
         "imagemin-lint-staged": "0.x",
         "lint-staged": "9.x",
+        "prettier": "^2.3.2",
         "prettier-config-ackee": "^0.0.15"
     },
     "dependencies": {
@@ -16,19 +17,21 @@
         "@ackee/jerome": "^4.1.0",
         "@ackee/lucas": "^0.3.1",
         "@ackee/redux-utils": "3.1.3",
+        "@ant-design/icons": "^4.6.2",
         "@sentry/browser": "^6.2.2",
         "@testing-library/jest-dom": "^5.11.4",
         "@testing-library/react": "^11.1.0",
         "@testing-library/user-event": "^12.1.10",
         "antd": "^4.13.1",
         "connected-react-router": "^6.9.1",
+        "date-fns": "^2.22.1",
         "fela": "^11.6.0",
         "fela-monolithic": "^11.6.0",
         "fela-plugin-friendly-pseudo-class": "^11.6.0",
         "fela-plugin-named-keys": "^11.6.0",
         "fela-plugin-unit": "^11.6.0",
         "fela-plugin-validator": "^11.6.0",
-        "firebase": "^8.3.0",
+        "firebase": "^8.9.1",
         "prop-types": "^15.7.2",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
@@ -41,9 +44,7 @@
         "redux-saga": "^1.1.3",
         "redux-sentry-middleware": "^0.2.2",
         "reselect": "^4.0.0",
-        "web-vitals": "^1.0.1",
-        "@ant-design/icons": "^4.6.2",
-        "date-fns": "^2.22.1"
+        "web-vitals": "^1.0.1"
     },
     "husky": {
         "hooks": {
@@ -52,7 +53,7 @@
     },
     "lint-staged": {
         "*.{js,jsx,json,scss,less,css,md}": [
-            "prettier --config ./prettier.config.js --write",
+            "yarn format",
             "git add"
         ],
         "**/*.{png,jpeg,jpg,gif,svg}": [
@@ -64,7 +65,8 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "format": "prettier --config ./prettier.config.js --write ./src/**/*.{js,jsx}"
     },
     "browserslist": {
         "production": [
