@@ -13,7 +13,7 @@ const HomePage = () => {
 
     React.useEffect(() => {
         dispatch(actions.fetchReportsRequest());
-    }, []);
+    }, [dispatch]);
     const data = useSelector(state => reportsSelectors.reportsSelector(state));
 
     return (

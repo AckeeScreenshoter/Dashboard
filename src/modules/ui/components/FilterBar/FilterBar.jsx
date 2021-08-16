@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
 import { Select, Form } from 'antd';
 
