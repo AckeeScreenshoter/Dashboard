@@ -24,6 +24,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
         osVersion,
         mediaUploaded,
         buildNumber,
+        image,
     } = message;
 
     return (
@@ -116,7 +117,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
                         <Paragraph className={styles.subName}>{buildNumber}</Paragraph>
                     </Col>
                     <Col sm={12} className={styles.screenBox}>
-                        <img alt={'screenshot'} className={styles.screenshot} src={'screenshot.png'} />
+                        <img alt={appName} className={styles.screenshot} src={image} />
                     </Col>
                 </Row>
             </Modal>

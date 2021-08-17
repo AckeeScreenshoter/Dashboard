@@ -55,6 +55,6 @@ export const screenBox = ({ theme }) => ({
     borderTopRightRadius: theme.borderRadiuses.medium,
 });
 export const screenshot = () => ({
-    maxWidth: '80%',
+    maxWidth: '65%',
     maxHeight: '80%',
 });
