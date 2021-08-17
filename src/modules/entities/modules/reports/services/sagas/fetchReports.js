@@ -50,19 +50,17 @@ function* fetchReports() {
         const snapshot = yield firestore.collection('messages').limit(5).get();
         const data = [];
         const results = [];
-        let id = 0;
+
         snapshot.forEach(documentSnapshot => {
             results.push(storage.ref(documentSnapshot.id).getDownloadURL());
         });
-
         const downloadURLs = yield Promise.all(results);
+
+        let id = 0;
         snapshot.forEach(documentSnapshot => {
             data.push({ ...documentSnapshot.data(), image: downloadURLs[id] });
             id++;
         });
-
-        console.log(downloadURLs);
-        console.log(data);
 
         yield put(actions.fetchReportsSuccess(data));
 
