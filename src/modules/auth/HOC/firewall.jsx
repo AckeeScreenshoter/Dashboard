@@ -1,5 +1,5 @@
 import { React, useSelector, Auth } from '../dependencies';
-
+import Loading from '../components/Loading';
 const { AuthFlowType } = Auth.Consts;
 const { authFlowTypeSelector } = Auth.selectors;
 
@@ -9,7 +9,7 @@ export default function firewall(AuthContent, PublicContent) {
 
         switch (authFlowType) {
             case AuthFlowType.INDETERMINATED:
-                return <h1>Loading</h1>;
+                return <Loading />;
 
             case AuthFlowType.ANONYMOUS:
                 return <PublicContent />;

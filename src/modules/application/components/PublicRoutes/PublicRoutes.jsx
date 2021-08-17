@@ -15,8 +15,8 @@ const routes = [
 export default function PublicRoutes() {
     return (
         <Switch>
-            {routes.map(route => (
-                <Route key={route.path} exact {...route} />
+            {routes.map((route, index) => (
+                <Route key={index} exact {...route} />
             ))}
         </Switch>
     );

@@ -61,9 +61,6 @@ function* fetchReports() {
             id++;
         });
 
-        console.log(downloadURLs);
-        console.log(data);
-
         yield put(actions.fetchReportsSuccess(data));
 
         // const collectionRef = yield firestore.collection('messages').limit(25);

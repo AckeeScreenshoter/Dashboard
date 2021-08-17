@@ -12,7 +12,7 @@ export const select = ({ theme }) => ({
     ':hover': {
         borderColor: theme.colors.secondaryText,
     },
-    ':focus': {
+    '& .ant-select-focused': {
         borderColor: theme.colors.secondaryText,
     },
 });
