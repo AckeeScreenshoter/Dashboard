@@ -47,20 +47,23 @@ import { fetchReports as actions, fetchReportsTypes } from '../actions';
 
 function* fetchReports() {
     try {
-        const snapshot = yield firestore.collection('messages').limit(2).get();
-
+        const snapshot = yield firestore.collection('messages').limit(5).get();
         const data = [];
+        const results = [];
+        let id = 0;
         snapshot.forEach(documentSnapshot => {
-            storage
-                .ref(documentSnapshot.id)
-                .getDownloadURL()
-                .then(url => {
-                    console.log(url);
-                });
-            data.push({
-                ...documentSnapshot.data(),
-            });
+            results.push(storage.ref(documentSnapshot.id).getDownloadURL());
         });
+
+        const downloadURLs = yield Promise.all(results);
+        snapshot.forEach(documentSnapshot => {
+            data.push({ ...documentSnapshot.data(), image: downloadURLs[id] });
+            id++;
+        });
+
+        console.log(downloadURLs);
+        console.log(data);
+
         yield put(actions.fetchReportsSuccess(data));
 
         // const collectionRef = yield firestore.collection('messages').limit(25);
