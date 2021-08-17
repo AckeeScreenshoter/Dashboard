@@ -2,6 +2,8 @@ import { put } from 'redux-saga/effects';
 import { takeLatestRequest } from '@ackee/antonio-utils';
 // eslint-disable-next-line no-unused-vars
 import { firestore } from 'config/firebase';
+import { storage } from 'config/firebase';
+
 import * as log from 'config/loglevel';
 import { createUIErrorMessage } from '../../../../utils/errors';
 import { fetchReports as actions, fetchReportsTypes } from '../actions';
@@ -45,12 +47,22 @@ import { fetchReports as actions, fetchReportsTypes } from '../actions';
 
 function* fetchReports() {
     try {
-        const snapshot = yield firestore.collection('messages').limit(1).get();
-
+        const snapshot = yield firestore.collection('messages').limit(5).get();
         const data = [];
+        const results = [];
+
         snapshot.forEach(documentSnapshot => {
-            data.push(documentSnapshot.data());
+            results.push(storage.ref(documentSnapshot.id).getDownloadURL());
         });
+        const downloadURLs = yield Promise.all(results);
+
+        let id = 0;
+        snapshot.forEach(documentSnapshot => {
+            data.push({ ...documentSnapshot.data(), image: downloadURLs[id] });
+            id++;
+        });
+
+        yield put(actions.fetchReportsSuccess(data));
 
         // const collectionRef = yield firestore.collection('messages').limit(25);
         // const data = yield collectionRef.get().then(querySnapshot => {
@@ -60,8 +72,6 @@ function* fetchReports() {
         //     });
         // });
         // TODO: delete when quota it not exceeded anymore
-
-        yield put(actions.fetchReportsSuccess(data));
     } catch (error) {
         log.error(error);
 

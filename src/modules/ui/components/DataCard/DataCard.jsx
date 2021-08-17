@@ -16,10 +16,10 @@ const DataCard = ({ message, onClick }) => {
     return (
         <Card onClick={onClick} hoverable className={styles.card}>
             <Row>
-                <Col span={7}>
+                <Col xxl={{ span: 7 }} xl={{ span: 8 }}>
                     <img src={message.mediaUploaded ? message.image : videoImg} alt={message.appName} />
                 </Col>
-                <Col span={15}>
+                <Col xxl={{ span: 15 }} xl={{ span: 14 }}>
                     <div className={styles.contentWrapper}>
                         <div className={styles.cardHeader}>
                             <div>

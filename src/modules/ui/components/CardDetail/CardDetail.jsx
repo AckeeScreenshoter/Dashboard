@@ -12,7 +12,20 @@ import NoteForm from '../NoteForm';
 const CardDetail = ({ message, onCancel, visible }) => {
     const { styles } = useFelaEnhanced(felaRules);
     const { Text, Paragraph } = Typography;
-    const { appName, platform, appVersion, date, note, deviceModel, osVersion, bundleId } = message;
+    const {
+        appName,
+        platform,
+        appVersion,
+        date,
+        note,
+        bundleId,
+        deviceModel,
+        deviceMake,
+        osVersion,
+        mediaUploaded,
+        buildNumber,
+        image,
+    } = message;
 
     return (
         <div id="modalMount" className={styles.cardDetail}>
@@ -85,15 +98,15 @@ const CardDetail = ({ message, onCancel, visible }) => {
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.mediaUploaded" />
                         </Text>
-                        <Paragraph className={styles.subName}>mediaUploaded</Paragraph>
+                        <Paragraph className={styles.subName}>{mediaUploaded?.toString()}</Paragraph>
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.deviceMake" />
                         </Text>
-                        <Paragraph className={styles.subName}>deviceMake</Paragraph>
+                        <Paragraph className={styles.subName}>{deviceMake}</Paragraph>
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.bundleId" />
                         </Text>
-                        <Paragraph className={styles.subName}>bundleId</Paragraph>
+                        <Paragraph className={styles.subName}>{bundleId}</Paragraph>
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.customData" />
                         </Text>
@@ -101,10 +114,10 @@ const CardDetail = ({ message, onCancel, visible }) => {
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.buildNumber" />
                         </Text>
-                        <Paragraph className={styles.subName}>buildNumber</Paragraph>
+                        <Paragraph className={styles.subName}>{buildNumber}</Paragraph>
                     </Col>
                     <Col sm={12} className={styles.screenBox}>
-                        <img alt={'screenshot'} className={styles.screenshot} src={'screenshot.png'} />
+                        <img alt={appName} className={styles.screenshot} src={image} />
                     </Col>
                 </Row>
             </Modal>
