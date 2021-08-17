@@ -6,7 +6,6 @@ import { actions, selectors as reportsSelectors } from 'modules/entities/modules
 import { useDispatch, useSelector } from 'react-redux';
 import * as felaRules from './HomePage.styles';
 import FilterBar from 'modules/ui/components/FilterBar';
-console.log(actions);
 
 const HomePage = () => {
     const { styles } = useFelaEnhanced(felaRules);

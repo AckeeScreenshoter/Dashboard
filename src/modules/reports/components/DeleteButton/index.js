@@ -1,1 +1,1 @@
-export { default } from './DeleteButton.jsx';
+export { default } from './DeleteButton';

@@ -16,10 +16,4 @@ const Loading = () => {
     );
 };
 
-Loading.propTypes = {
-    styles: PropTypes.shape({
-        container: PropTypes.string.isRequired,
-    }).isRequired,
-};
-
 export default Loading;

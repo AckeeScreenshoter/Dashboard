@@ -26,6 +26,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
         mediaUploaded,
         buildNumber,
         image,
+        // TODO - id is undefined here
         id,
     } = message;
 

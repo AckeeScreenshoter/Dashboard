@@ -7,6 +7,7 @@ import useDeleteReport from '../../hooks/useDeleteReport';
 
 const DeleteButton = ({ id }) => {
     const { api, deleteReport } = useDeleteReport(id);
+    // TODO - id is undefined - get id from message
     console.log(id, api);
     return (
         <Button onClick={deleteReport}>
@@ -15,4 +16,6 @@ const DeleteButton = ({ id }) => {
     );
 };
 
-export default DeleteButton.js;
+// TODO - proptypes
+
+export default DeleteButton;

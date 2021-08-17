@@ -1,4 +1,4 @@
 import { apiRequestActions } from '@ackee/redux-utils';
-import { FetchReportsTypes } from './types';
+import { DeleteReportTypes } from './types';
 
-export default apiRequestActions(FetchReportsTypes, { isDetailRequest: true });
+export default apiRequestActions(DeleteReportTypes, { isDetailRequest: true });

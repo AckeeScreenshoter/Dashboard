@@ -10,6 +10,7 @@ import actions, { types } from '../actions';
 
 function* fetchReports() {
     try {
+        // DO NOT DELETE the limit - it causes exceeding the firebase usage
         const snapshot = yield firestore.collection('messages').limit(5).get();
         const data = [];
         const results = [];
@@ -17,6 +18,7 @@ function* fetchReports() {
         snapshot.forEach(documentSnapshot => {
             results.push(storage.ref(documentSnapshot.id).getDownloadURL());
         });
+        // eslint-disable-next-line compat/compat
         const downloadURLs = yield Promise.all(results);
 
         let id = 0;
@@ -26,15 +28,6 @@ function* fetchReports() {
         });
 
         yield put(actions.fetchReportsSuccess(data));
-
-        // const collectionRef = yield firestore.collection('messages').limit(25);
-        // const data = yield collectionRef.get().then(querySnapshot => {
-        //     querySnapshot.forEach(documentSnapshot => {
-        //         console.log(documentSnapshot.data());
-        //         return documentSnapshot.data();
-        //     });
-        // });
-        // TODO: delete when quota it not exceeded anymore
     } catch (error) {
         log.error(error);
 
