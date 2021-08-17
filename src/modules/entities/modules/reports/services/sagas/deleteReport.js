@@ -6,9 +6,10 @@ import * as log from 'config/loglevel';
 import { createUIErrorMessage } from '../../../../utils/errors';
 import { deleteReport as actions, deleteReportType } from '../actions';
 
-function* deleteReport() {
+function* deleteReport(id) {
     try {
-        yield call(actions.fetchReportsSuccess());
+        yield firestore.collection('messages').doc(id).delete;
+        yield put(actions.deleteReportSuccess());
     } catch (error) {
         log.error(error);
 
