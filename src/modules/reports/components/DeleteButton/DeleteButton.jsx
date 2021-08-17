@@ -9,6 +9,7 @@ const DeleteButton = ({ id }) => {
     const { api, deleteReport } = useDeleteReport(id);
     // TODO - id is undefined - get id from message
     console.log(id, api);
+
     return (
         <Button onClick={deleteReport}>
             <FormattedMessage id="button.delete" />
