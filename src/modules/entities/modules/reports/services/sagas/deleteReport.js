@@ -1,10 +1,10 @@
-import { put, call } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 import { takeLatestRequest } from '@ackee/antonio-utils';
 
 import { firestore } from 'config/firebase';
 import * as log from 'config/loglevel';
 import { createUIErrorMessage } from '../../../../utils/errors';
-import { deleteReport as actions, deleteReportType } from '../actions';
+import actions, { types } from '../actions';
 
 function* deleteReport(id) {
     try {
@@ -21,7 +21,7 @@ function* deleteReport(id) {
 export default function* () {
     yield takeLatestRequest(
         {
-            DELETE: deleteReportType.DELETE_REPORT_REQUEST,
+            DELETE: types.DELETE_REPORT_REQUEST,
             cancelTask: actions.deleteReportCancel,
         },
         deleteReport,

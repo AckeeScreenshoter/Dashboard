@@ -1,12 +1,12 @@
 import { basicApiReducer } from '@ackee/redux-utils';
-import { fetchReportsTypes } from '../../actions';
+import { types } from '../../actions';
 
 export default basicApiReducer({
     actionTypes: {
-        REQUEST: fetchReportsTypes.FETCH_REPORTS_REQUEST,
-        SUCCESS: fetchReportsTypes.FETCH_REPORTS_SUCCESS,
-        FAILURE: fetchReportsTypes.FETCH_REPORTS_FAILURE,
-        CANCEL: fetchReportsTypes.FETCH_REPORTS_CANCEL,
-        RESET: fetchReportsTypes.FETCH_REPORTS_RESET,
+        REQUEST: types.FETCH_REPORTS_REQUEST,
+        SUCCESS: types.FETCH_REPORTS_SUCCESS,
+        FAILURE: types.FETCH_REPORTS_FAILURE,
+        CANCEL: types.FETCH_REPORTS_CANCEL,
+        RESET: types.FETCH_REPORTS_RESET,
     },
 });

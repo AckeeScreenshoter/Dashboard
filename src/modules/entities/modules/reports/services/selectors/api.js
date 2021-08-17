@@ -1,7 +1,11 @@
-import { ApiTypes, ApiKeys } from "constants/entities";
+import { ApiTypes, ApiKeys } from 'constants/entities';
 
-import { apiSelector } from "@ackee/redux-utils";
+import { apiSelector } from '@ackee/redux-utils';
 
-export const getReportsApiSelector = (state) => {
-  return apiSelector(state, ApiKeys.REPORTS, ApiTypes.GET);
+export const getReportsApiSelector = state => {
+    return apiSelector(state, ApiKeys.REPORTS, ApiTypes.GET);
+};
+
+export const deleteReportApiSelector = state => {
+    return apiSelector(state, ApiKeys.REPORTS, ApiTypes.DELETE);
 };

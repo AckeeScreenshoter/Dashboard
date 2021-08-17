@@ -8,6 +8,7 @@ import { FormattedMessage, FormattedDate } from 'react-intl';
 import * as felaRules from './CardDetail.styles';
 import Button from '../Button';
 import NoteForm from '../NoteForm';
+import DeleteButton from '../../../reports/components/DeleteButton';
 
 const CardDetail = ({ message, onCancel, visible }) => {
     const { styles } = useFelaEnhanced(felaRules);
@@ -25,6 +26,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
         mediaUploaded,
         buildNumber,
         image,
+        id,
     } = message;
 
     return (
@@ -41,6 +43,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
                         <Button type="secondary">
                             <FormattedMessage id="card.button.delete" />
                         </Button>
+                        <DeleteButton id={id} />
                         <Button type="primary" icon={<CopyOutlined />}>
                             <FormattedMessage id="card.button.copy" />
                         </Button>
