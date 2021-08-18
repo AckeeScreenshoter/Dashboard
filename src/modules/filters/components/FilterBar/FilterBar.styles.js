@@ -1,9 +1,7 @@
 export const container = () => ({
     display: 'flex',
-    '& .ant-form-item-labe': {
-        fontSize: '3rem',
-    },
 });
+// remove !important
 export const select = ({ theme }) => ({
     '& .ant-select-selector': {
         borderRadius: theme.borderRadiuses.small + '!important',
@@ -21,9 +19,10 @@ export const formItem = ({ theme }) => ({
         padding: '0',
     },
     '& label': {
-        fontSize: '80%',
+        fontSize: '90%',
         color: theme.colors.secondaryText,
-        fontWeight: '600',
+        fontWeight: '400',
+        height: 'auto !important',
     },
 });
 export const dropdown = ({ theme }) => ({
