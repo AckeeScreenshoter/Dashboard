@@ -9,7 +9,7 @@ import videoImg from 'assets/images/thumbnail_vid.png';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
 import * as felaRules from './DataCard.styles';
 import Button from '../Button';
-
+import DeleteButton from 'modules/reports/components/DeleteButton';
 const DataCard = ({ message, onClick }) => {
     const { styles } = useFelaEnhanced(felaRules);
 
@@ -31,11 +31,10 @@ const DataCard = ({ message, onClick }) => {
                             {message.deviceMake === 'samsung' ? <AndroidFilled /> : <AppleFilled />}
                         </div>
                         {message.note && <Typography.Paragraph>{message.note}</Typography.Paragraph>}
-                        <div className={styles.buttonBox}>
-                            <Button type="secondary">
-                                <FormattedMessage id="card.button.delete" />
-                            </Button>
-                            <Button type="primary" icon={<CopyOutlined />}>
+                        <div onClick={e => e.stopPropagation()} className={styles.buttonBox}>
+                            <DeleteButton id={message.id} />
+
+                            <Button htmlType="button" type="primary" icon={<CopyOutlined />}>
                                 <FormattedMessage id="card.button.copy" />
                             </Button>
                         </div>
@@ -47,6 +46,7 @@ const DataCard = ({ message, onClick }) => {
 };
 DataCard.propTypes = {
     message: PropTypes.shape({
+        id: PropTypes.string,
         mediaUploaded: PropTypes.bool,
         image: PropTypes.string,
         appName: PropTypes.string,

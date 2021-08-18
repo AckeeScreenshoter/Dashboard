@@ -23,7 +23,7 @@ export const card = ({ theme }) => ({
 
     '&  img': {
         width: '100%',
-        maxHeight: '17vh',
+        height: '14vh',
         objectFit: 'cover',
         borderRadius: theme.borderRadiuses.small,
     },

@@ -20,5 +20,6 @@
     "card.detail.buildNumber": "buildNumber",
     "button.logout": "Log out",
     "login.card.title": "Sign into ASS",
-    "login.card.googleButton": "Sign in with Google"
+    "login.card.googleButton": "Sign in with Google",
+    "button.delete": "Delete"
 }

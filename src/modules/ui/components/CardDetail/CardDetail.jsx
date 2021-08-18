@@ -26,7 +26,6 @@ const CardDetail = ({ message, onCancel, visible }) => {
         mediaUploaded,
         buildNumber,
         image,
-        // TODO - id is undefined here
         id,
     } = message;
 
@@ -41,13 +40,11 @@ const CardDetail = ({ message, onCancel, visible }) => {
                 getContainer="#modalMount"
                 footer={[
                     <div key={'id'}>
-                        <Button type="secondary">
-                            <FormattedMessage id="card.button.delete" />
-                        </Button>
-                        <DeleteButton id={id} />
+                        <DeleteButton onCancel={onCancel} id={id} />
                         <Button type="primary" icon={<CopyOutlined />}>
                             <FormattedMessage id="card.button.copy" />
                         </Button>
+                        <Button>sdasd</Button>
                     </div>,
                 ]}
             >
@@ -130,6 +127,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
 };
 CardDetail.propTypes = {
     message: PropTypes.shape({
+        id: PropTypes.string,
         mediaUploaded: PropTypes.bool,
         image: PropTypes.string,
         appName: PropTypes.string,

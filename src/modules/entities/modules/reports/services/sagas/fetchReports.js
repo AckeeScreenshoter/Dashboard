@@ -23,7 +23,7 @@ function* fetchReports() {
 
         let id = 0;
         snapshot.forEach(documentSnapshot => {
-            data.push({ ...documentSnapshot.data(), image: downloadURLs[id] });
+            data.push({ ...documentSnapshot.data(), image: downloadURLs[id], id: documentSnapshot.id });
             id++;
         });
 

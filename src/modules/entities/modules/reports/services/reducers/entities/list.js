@@ -7,6 +7,10 @@ export default function listReportsReducer(state = initialState, action) {
         case types.FETCH_REPORTS_SUCCESS:
             return [...action.payload];
 
+        case types.DELETE_REPORT_SUCCESS:
+            const { id } = action.meta;
+
+            return [...state.filter(item => item.id !== id)];
         default:
             return state;
     }

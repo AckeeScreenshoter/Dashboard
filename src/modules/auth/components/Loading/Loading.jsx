@@ -1,4 +1,4 @@
-import { React, PropTypes } from '../../dependencies';
+import { React } from '../../dependencies';
 import { Spin, Space } from 'antd';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
 
