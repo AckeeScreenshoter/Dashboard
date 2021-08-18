@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
 import Button from 'modules/ui/components/Button';
+
 import useDeleteReport from '../../hooks/useDeleteReport';
 
 const DeleteButton = ({ id, onCancel }) => {

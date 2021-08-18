@@ -3,6 +3,7 @@ import { takeLatestRequest } from '@ackee/antonio-utils';
 
 import { firestore, storage } from 'config/firebase';
 import * as log from 'config/loglevel';
+
 import { createUIErrorMessage } from '../../../../utils/errors';
 import actions, { types } from '../actions';
 

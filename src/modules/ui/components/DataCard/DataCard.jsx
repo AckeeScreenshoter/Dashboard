@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { Card, Typography, Row, Col } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { format } from 'date-fns';
+import useFelaEnhanced from 'hooks/useFelaEnhanced';
 import { AndroidFilled, AppleFilled, CopyOutlined } from '@ant-design/icons';
 
-import videoImg from 'assets/images/thumbnail_vid.png';
-import useFelaEnhanced from 'hooks/useFelaEnhanced';
+import DeleteButton from 'modules/reports/components/DeleteButton';
 import * as felaRules from './DataCard.styles';
 import Button from '../Button';
-import DeleteButton from 'modules/reports/components/DeleteButton';
+import videoImg from 'assets/images/thumbnail_vid.png';
+
 const DataCard = ({ message, onClick }) => {
     const { styles } = useFelaEnhanced(felaRules);
 
