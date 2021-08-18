@@ -11,6 +11,7 @@ import FilterFetcher from 'modules/filters/components/FilterFetcher';
 const HomePage = () => {
     const { styles } = useFelaEnhanced(felaRules);
     const dispatch = useDispatch();
+
     //  TODO: create hook form fetchReportsRequest
     React.useEffect(() => {
         dispatch(actions.fetchReportsRequest());
