@@ -19,5 +19,8 @@
     "button.logout": "Log out",
     "login.card.title": "Sign into ASS",
     "login.card.googleButton": "Sign in with Google",
-    "button.delete": "Delete"
+    "button.delete": "Delete",
+    "filters.appName": "App name",
+    "filters.platform": "Platform",
+    "filters.deviceModel": "Device model"
 }

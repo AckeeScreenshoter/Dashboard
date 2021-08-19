@@ -1,5 +1,6 @@
 export const EntityKeys = {
     REPORTS: 'reports',
+    FILTERS: 'filters',
     AUTH: 'auth',
     USER: 'user',
 };

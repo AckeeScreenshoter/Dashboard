@@ -5,11 +5,12 @@ import ReportsList from 'modules/reports';
 import { actions, selectors as reportsSelectors } from 'modules/entities/modules/reports';
 import { useDispatch, useSelector } from 'react-redux';
 import * as felaRules from './HomePage.styles';
-import FilterBar from 'modules/ui/components/FilterBar';
+import FilterBar from 'modules/filters/components/FilterBar';
 
 const HomePage = () => {
     const { styles } = useFelaEnhanced(felaRules);
     const dispatch = useDispatch();
+
     //  TODO: create hook form fetchReportsRequest
     React.useEffect(() => {
         dispatch(actions.fetchReportsRequest());
@@ -19,6 +20,7 @@ const HomePage = () => {
     return (
         <>
             <FilterBar />
+
             <div className={styles.container}>
                 <ReportsList data={data} />
             </div>

@@ -12,6 +12,7 @@ function* fetchReports() {
     try {
         // DO NOT DELETE the limit - it causes exceeding the firebase usage
         const snapshot = yield firestore.collection('messages').limit(5).get();
+
         const data = [];
         const results = [];
 

@@ -141,7 +141,7 @@ CardDetail.propTypes = {
         osVersion: PropTypes.string,
         appVersion: PropTypes.string,
         bundleId: PropTypes.string,
-        buildNumber: PropTypes.number,
+        buildNumber: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
         deviceModel: PropTypes.string,
     }),
     onCancel: PropTypes.func,
