@@ -1,5 +1,5 @@
 import { React, FormattedMessage, useDispatch, useSelector, Auth } from '../../dependencies';
-import Button from 'modules/ui/components/Button';
+import { Button } from 'modules/ui';
 
 const Logout = () => {
     const dispatch = useDispatch();

@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import Button from 'modules/ui/components/Button';
-
-import useDeleteReport from '../../hooks/useDeleteReport';
+import { Button } from 'modules/ui';
+import { useDeleteReport } from 'modules/reports';
 
 const DeleteButton = ({ id, onCancel }) => {
     const { deleteReport } = useDeleteReport(id);
     const handleClick = () => {
+        // TODO: ES6
         if (onCancel) {
             onCancel();
             deleteReport(deleteReport);

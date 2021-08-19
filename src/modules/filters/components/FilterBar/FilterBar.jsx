@@ -1,11 +1,11 @@
 import React from 'react';
-import useFelaEnhanced from 'hooks/useFelaEnhanced';
 import { nanoid } from 'nanoid';
 
 import { Select, Form, Row, Col } from 'antd';
+import { useFilters } from 'modules/filters';
+import useFelaEnhanced from 'hooks/useFelaEnhanced';
 
 import * as felaRules from './FilterBar.styles';
-import useFilters from '../../hooks/useFilters';
 const { Option } = Select;
 
 const FilterBar = () => {

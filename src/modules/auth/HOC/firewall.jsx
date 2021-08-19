@@ -1,5 +1,5 @@
 import { React, useSelector, Auth } from '../dependencies';
-import Loader from 'modules/ui/components/Loader';
+import { Loader } from 'modules/ui';
 const { AuthFlowType } = Auth.Consts;
 const { authFlowTypeSelector } = Auth.selectors;
 

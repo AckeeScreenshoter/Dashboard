@@ -1,4 +1,4 @@
-import firewall from 'modules/auth/HOC/firewall';
+import { firewall } from 'modules/auth';
 
 import AuthRoutes from '../AuthRoutes';
 import PublicRoutes from '../PublicRoutes';

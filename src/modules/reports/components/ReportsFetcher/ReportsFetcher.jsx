@@ -1,8 +1,8 @@
 import React from 'react';
 import { childrenPropType } from '@ackee/lucas';
-import useReportsFetcher from '../../hooks/useReportsFetcher';
 
-import Loader from 'modules/ui/components/Loader';
+import { Loader } from 'modules/ui';
+import { useReportsFetcher } from 'modules/reports';
 
 const ReportsFetcher = ({ children }) => {
     const { success, inProgress } = useReportsFetcher();
