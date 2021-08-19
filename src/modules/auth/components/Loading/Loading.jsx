@@ -3,7 +3,7 @@ import { Spin, Space } from 'antd';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
 
 import * as felaRules from './Loading.styles';
-
+// to be deleted
 const Loading = () => {
     const { styles } = useFelaEnhanced(felaRules);
 

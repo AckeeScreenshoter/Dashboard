@@ -8,7 +8,7 @@ import { FormattedMessage, FormattedDate } from 'react-intl';
 import * as felaRules from './CardDetail.styles';
 import Button from '../Button';
 import NoteForm from '../NoteForm';
-import DeleteButton from '../../../reports/components/DeleteButton';
+import DeleteButton from 'modules/reports';
 
 const CardDetail = ({ message, onCancel, visible }) => {
     const { styles } = useFelaEnhanced(felaRules);
