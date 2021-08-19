@@ -21,6 +21,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
         note,
         bundleId,
         deviceModel,
+
         deviceMake,
         osVersion,
         mediaUploaded,

@@ -7,11 +7,7 @@ import Loader from 'modules/ui/components/Loader';
 const ReportsFetcher = ({ children }) => {
     const { success, inProgress } = useReportsFetcher();
 
-    return (
-        <Loader inline={true} show={inProgress || !success}>
-            {children}
-        </Loader>
-    );
+    return <Loader show={inProgress || !success}>{children}</Loader>;
 };
 
 ReportsFetcher.propTypes = {

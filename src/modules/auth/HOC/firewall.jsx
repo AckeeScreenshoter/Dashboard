@@ -16,7 +16,6 @@ export default function firewall(AuthContent, PublicContent) {
 
             case AuthFlowType.AUTHENTICATED:
                 return <AuthContent />;
-                x;
 
             default:
                 return null;

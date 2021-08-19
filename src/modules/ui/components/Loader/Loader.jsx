@@ -7,12 +7,12 @@ import { FormattedMessage } from 'react-intl';
 
 import * as felaRules from './Loader.styles';
 
-const Loader = ({ children, show, textId }) => {
+const Loader = ({ children, show, textId, inline }) => {
     const { styles } = useFelaEnhanced(felaRules);
 
     return show ? (
-        <div className={styles.loader}>
-            <AntdSpin className={styles.l} size="large" />
+        <div className={inline ? styles.loaderLine : styles.loaderFull}>
+            <AntdSpin className={styles.loader} size="large" />
             <div className={styles.text}>
                 <FormattedMessage id={textId} />
             </div>
