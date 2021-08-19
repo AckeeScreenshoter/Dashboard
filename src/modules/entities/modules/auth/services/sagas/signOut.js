@@ -1,5 +1,5 @@
-import { sagaEffects, auth } from '../../dependencies';
-
+import * as sagaEffects from 'redux-saga/effects';
+import { auth } from 'config/firebase';
 import { AuthFlowType } from '../../constants';
 import { types, signOutFailure, signOutSuccess, setAuthFlowType } from '../actions';
 import { preventSilentAccess } from './credentialManagement';

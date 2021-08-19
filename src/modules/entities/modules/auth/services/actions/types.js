@@ -1,4 +1,4 @@
-import { createApiRequestType, strictObjectAccess } from '../../dependencies';
+import { createApiRequestType, strictObjectAccess } from '@ackee/redux-utils/es';
 
 const apiRequestType = createApiRequestType({
     modulePrefix: 'auth',

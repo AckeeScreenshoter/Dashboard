@@ -8,13 +8,8 @@ import { useDeleteReport } from 'modules/reports';
 const DeleteButton = ({ id, onCancel }) => {
     const { deleteReport } = useDeleteReport(id);
     const handleClick = () => {
-        // TODO: ES6
-        if (onCancel) {
-            onCancel();
-            deleteReport(deleteReport);
-        } else {
-            deleteReport(deleteReport);
-        }
+        // deleteReport();
+        onCancel();
     };
     return (
         <Button onClick={handleClick}>

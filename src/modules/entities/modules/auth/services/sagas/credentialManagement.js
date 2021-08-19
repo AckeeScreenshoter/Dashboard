@@ -1,4 +1,4 @@
-import { Consts } from '../../dependencies';
+import * as Consts from 'constants/index';
 import * as sagaEffects from 'redux-saga/effects';
 import { AuthProviders } from 'config/firebase';
 

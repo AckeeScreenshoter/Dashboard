@@ -4,7 +4,6 @@ import { nanoid } from 'nanoid';
 import { Select, Form, Row, Col } from 'antd';
 import { useFilters } from 'modules/filters';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
-
 import * as felaRules from './FilterBar.styles';
 const { Option } = Select;
 
