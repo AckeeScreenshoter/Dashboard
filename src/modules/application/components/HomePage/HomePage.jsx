@@ -6,7 +6,6 @@ import { actions, selectors as reportsSelectors } from 'modules/entities/modules
 import { useDispatch, useSelector } from 'react-redux';
 import * as felaRules from './HomePage.styles';
 import FilterBar from 'modules/filters/components/FilterBar';
-import FilterFetcher from 'modules/filters/components/FilterFetcher';
 
 const HomePage = () => {
     const { styles } = useFelaEnhanced(felaRules);
@@ -20,9 +19,8 @@ const HomePage = () => {
 
     return (
         <>
-            <FilterFetcher>
-                <FilterBar />
-            </FilterFetcher>
+            <FilterBar />
+
             <div className={styles.container}>
                 <ReportsList data={data} />
             </div>
