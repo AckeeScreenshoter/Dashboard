@@ -25,7 +25,6 @@ const Loader = ({ children, show, textId, inline }) => {
 Loader.propTypes = {
     children: childrenPropType,
     show: PropTypes.bool,
-    styles: PropTypes.shape().isRequired,
     inline: PropTypes.bool,
     textId: PropTypes.string,
 };

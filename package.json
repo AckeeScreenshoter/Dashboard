@@ -32,6 +32,7 @@
         "fela-plugin-unit": "^11.6.0",
         "fela-plugin-validator": "^11.6.0",
         "firebase": "^8.9.1",
+        "gitmoji-cli": "^4.5.0",
         "prop-types": "^15.7.2",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",

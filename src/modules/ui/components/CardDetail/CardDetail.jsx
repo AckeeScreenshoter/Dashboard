@@ -50,7 +50,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
                 ]}
             >
                 <Row>
-                    <Col className={styles.textBox} sm={12}>
+                    <Col className={styles.textBox} xs={12}>
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.appName" />
                         </Text>
@@ -118,7 +118,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
                         </Text>
                         <Paragraph className={styles.subName}>{buildNumber}</Paragraph>
                     </Col>
-                    <Col sm={12} className={styles.screenBox}>
+                    <Col xs={12} className={styles.screenBox}>
                         <img alt={appName} className={styles.screenshot} src={image} />
                     </Col>
                 </Row>
@@ -142,7 +142,7 @@ CardDetail.propTypes = {
         osVersion: PropTypes.string,
         appVersion: PropTypes.string,
         bundleId: PropTypes.string,
-        buildNumber: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+        buildNumber: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         deviceModel: PropTypes.string,
     }),
     onCancel: PropTypes.func,
