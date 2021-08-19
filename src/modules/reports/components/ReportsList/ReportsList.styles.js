@@ -4,4 +4,5 @@ export const container = () => ({
 export const item = () => ({
     marginTop: '0.5rem',
     marginBottom: '0.5rem',
+    width: '100%',
 });

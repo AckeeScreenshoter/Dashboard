@@ -5,7 +5,6 @@ export const card = ({ theme }) => ({
     borderRadius: theme.borderRadiuses.small,
     border: `2px solid ${theme.colors.white}`,
     boxShadow: `5px 5px 20px 0px ${theme.colors.secondaryShadow}`,
-
     width: '100%',
 
     '& h3.ant-typography': {
@@ -24,7 +23,7 @@ export const card = ({ theme }) => ({
 
     '&  img': {
         width: '100%',
-        maxHeight: '17vh',
+        height: '14vh',
         objectFit: 'cover',
         borderRadius: theme.borderRadiuses.small,
     },

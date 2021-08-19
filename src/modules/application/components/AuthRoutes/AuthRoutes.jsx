@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { nanoid } from 'nanoid';
+
 import HomePage from 'modules/application/components/HomePage';
 const routes = [
     {
@@ -15,8 +17,8 @@ export default function AuthRoutes() {
     return (
         <>
             <Switch>
-                {routes.map((route, index) => (
-                    <Route key={index.toString()} exact {...route} />
+                {routes.map(route => (
+                    <Route key={nanoid()} exact {...route} />
                 ))}
             </Switch>
         </>

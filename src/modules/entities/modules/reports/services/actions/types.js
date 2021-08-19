@@ -1,22 +1,21 @@
-import { EntityKeys } from "constants/entities";
+import { EntityKeys } from 'constants/entities';
 
-import { strictObjectAccess, createApiRequestType } from "@ackee/redux-utils";
+import { strictObjectAccess, createApiRequestType } from '@ackee/redux-utils';
 
 const modulePrefix = EntityKeys.REPORTS;
 
 export const apiRequestType = createApiRequestType({
-  modulePrefix,
+    modulePrefix,
 });
 
 export const FetchReportsTypes = apiRequestType({
-  typePrefix: "FETCH_REPORTS_",
+    typePrefix: 'FETCH_REPORTS_',
+});
+export const DeleteReportTypes = apiRequestType({
+    typePrefix: 'DELETE_REPORT_',
 });
 
-export const SinglesTypes = {
-  FETCH_REPORTS: `${modulePrefix}/FETCH_REPORTS`,
-};
-
 export default strictObjectAccess({
-  ...FetchReportsTypes,
-  ...SinglesTypes,
+    ...FetchReportsTypes,
+    ...DeleteReportTypes,
 });

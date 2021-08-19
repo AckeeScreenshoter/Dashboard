@@ -4,8 +4,6 @@
     "error.general": "Chyba!",
 
     "card.button.copy": "Copy link",
-    "card.button.delete": "Delete",
-
     "card.detail.appName": "Název aplikace",
     "card.detail.os": "OS",
     "card.detail.device": "Zařízení",
@@ -20,5 +18,6 @@
     "card.detail.buildNumber": "buildNumber",
     "button.logout": "Log out",
     "login.card.title": "Sign into ASS",
-    "login.card.googleButton": "Sign in with Google"
+    "login.card.googleButton": "Sign in with Google",
+    "button.delete": "Delete"
 }

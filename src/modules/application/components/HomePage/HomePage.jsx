@@ -10,7 +10,7 @@ import FilterBar from 'modules/ui/components/FilterBar';
 const HomePage = () => {
     const { styles } = useFelaEnhanced(felaRules);
     const dispatch = useDispatch();
-
+    //  TODO: create hook form fetchReportsRequest
     React.useEffect(() => {
         dispatch(actions.fetchReportsRequest());
     }, [dispatch]);

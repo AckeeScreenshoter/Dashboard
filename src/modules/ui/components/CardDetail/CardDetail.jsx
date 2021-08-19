@@ -8,6 +8,7 @@ import { FormattedMessage, FormattedDate } from 'react-intl';
 import * as felaRules from './CardDetail.styles';
 import Button from '../Button';
 import NoteForm from '../NoteForm';
+import DeleteButton from 'modules/reports';
 
 const CardDetail = ({ message, onCancel, visible }) => {
     const { styles } = useFelaEnhanced(felaRules);
@@ -25,6 +26,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
         mediaUploaded,
         buildNumber,
         image,
+        id,
     } = message;
 
     return (
@@ -38,12 +40,11 @@ const CardDetail = ({ message, onCancel, visible }) => {
                 getContainer="#modalMount"
                 footer={[
                     <div key={'id'}>
-                        <Button type="secondary">
-                            <FormattedMessage id="card.button.delete" />
-                        </Button>
+                        <DeleteButton onCancel={onCancel} id={id} />
                         <Button type="primary" icon={<CopyOutlined />}>
                             <FormattedMessage id="card.button.copy" />
                         </Button>
+                        <Button>sdasd</Button>
                     </div>,
                 ]}
             >
@@ -126,6 +127,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
 };
 CardDetail.propTypes = {
     message: PropTypes.shape({
+        id: PropTypes.string,
         mediaUploaded: PropTypes.bool,
         image: PropTypes.string,
         appName: PropTypes.string,

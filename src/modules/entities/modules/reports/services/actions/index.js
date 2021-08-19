@@ -1,2 +1,2 @@
-export { default as fetchReportsTypes } from './types';
-export { default as fetchReports } from './fetchReports';
+export { default } from './actions';
+export { default as types } from './types';
