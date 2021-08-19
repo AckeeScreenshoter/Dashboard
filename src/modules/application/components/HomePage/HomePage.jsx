@@ -2,29 +2,22 @@ import React from 'react';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
 
 import ReportsList from 'modules/reports';
-import { actions, selectors as reportsSelectors } from 'modules/entities/modules/reports';
-import { useDispatch, useSelector } from 'react-redux';
 import * as felaRules from './HomePage.styles';
 import FilterBar from 'modules/filters/components/FilterBar';
-import FilterFetcher from 'modules/filters/components/FilterFetcher';
+import FiltersFetcher from 'modules/filters/components/FiltersFetcher';
+import ReportsFetcher from 'modules/reports/components/ReportsFetcher';
 
 const HomePage = () => {
     const { styles } = useFelaEnhanced(felaRules);
-    const dispatch = useDispatch();
-
-    //  TODO: create hook form fetchReportsRequest
-    React.useEffect(() => {
-        dispatch(actions.fetchReportsRequest());
-    }, [dispatch]);
-    const data = useSelector(state => reportsSelectors.reportsSelector(state));
-
     return (
         <>
-            <FilterFetcher>
+            <FiltersFetcher>
                 <FilterBar />
-            </FilterFetcher>
+            </FiltersFetcher>
             <div className={styles.container}>
-                <ReportsList data={data} />
+                <ReportsFetcher>
+                    <ReportsList />
+                </ReportsFetcher>
             </div>
         </>
     );

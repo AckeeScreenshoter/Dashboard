@@ -1,15 +1,15 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
-import PropTypes from 'prop-types';
+import useReports from '../../hooks/useReports';
 
 import { DataCard, CardDetail } from 'modules/ui';
 import * as felaRules from './ReportsList.styles';
 
-const ReportsList = ({ data }) => {
+const ReportsList = () => {
     const { styles } = useFelaEnhanced(felaRules);
     const [detailData, setDetailData] = React.useState(null);
-
+    const data = useReports();
     const handleCancel = () => {
         setDetailData(null);
     };
@@ -27,9 +27,6 @@ const ReportsList = ({ data }) => {
             {detailData ? <CardDetail visible={!!detailData} onCancel={handleCancel} message={detailData} /> : null}
         </div>
     );
-};
-ReportsList.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default ReportsList;
