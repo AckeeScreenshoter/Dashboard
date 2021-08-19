@@ -1,8 +1,8 @@
 import React from 'react';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
-import { Select, Form, Space, Row, Col } from 'antd';
+import { nanoid } from 'nanoid';
 
-import uuid from 'react-uuid';
+import { Select, Form, Row, Col } from 'antd';
 
 import * as felaRules from './FilterBar.styles';
 import useFilters from '../../hooks/useFilters';
@@ -60,7 +60,7 @@ const FilterBar = () => {
                                 dropdownClassName={styles.dropdown}
                             >
                                 {appName.map(appName => (
-                                    <Option key={uuid()} value={appName}>
+                                    <Option key={nanoid()} value={appName}>
                                         {appName}
                                     </Option>
                                 ))}

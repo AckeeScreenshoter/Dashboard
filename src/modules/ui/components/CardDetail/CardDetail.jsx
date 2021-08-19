@@ -8,7 +8,7 @@ import { FormattedMessage, FormattedDate } from 'react-intl';
 import * as felaRules from './CardDetail.styles';
 import Button from '../Button';
 import NoteForm from '../NoteForm';
-import DeleteButton from '../../../reports/components/DeleteButton';
+import DeleteButton from 'modules/reports/components/DeleteButton';
 
 const CardDetail = ({ message, onCancel, visible }) => {
     const { styles } = useFelaEnhanced(felaRules);
@@ -45,7 +45,6 @@ const CardDetail = ({ message, onCancel, visible }) => {
                         <Button type="primary" icon={<CopyOutlined />}>
                             <FormattedMessage id="card.button.copy" />
                         </Button>
-                        <Button>sdasd</Button>
                     </div>,
                 ]}
             >
