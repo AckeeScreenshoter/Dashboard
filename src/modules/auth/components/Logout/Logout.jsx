@@ -1,16 +1,19 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-
 import { Button } from 'modules/ui';
 import useLogout from '../../hooks/useLogout';
 
 const Logout = () => {
-    const { logout, api } = useLogout();
+    const { signOut, api } = useLogout();
     return (
-        <Button onClick={console.log('logout')} loading={api.inProgress}>
+        <Button onClick={signOut()} disabled={api.inProgress || !api.success}>
             <FormattedMessage id="button.logout" />
         </Button>
     );
 };
+
+// Logout.propTypes = {
+//     rules: PropTypes.shape().isRequired,
+// };
 
 export default Logout;

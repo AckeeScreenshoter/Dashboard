@@ -8,12 +8,8 @@ import { Button } from 'modules/ui';
 import * as felaRules from './Login.styles';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
 import useLogin from '../../hooks/useLogin';
-import { useDispatch, useSelector } from 'react-redux';
-import * as Auth from 'modules/entities/modules/auth';
 const Login = () => {
-    const dispatch = useDispatch();
-    const signInApi = useSelector(Auth.selectors.signInApiSelector);
-    // const { login, api } = useLogin();
+    const { signIn, api } = useLogin();
     const { styles } = useFelaEnhanced(felaRules);
     return (
         <div className={styles.container}>
@@ -23,8 +19,8 @@ const Login = () => {
                 </h1>
                 <Button
                     icon={<GoogleOutlined />}
-                    onClick={() => dispatch(Auth.actions.signInRequest())}
-                    loading={signInApi.inProgress}
+                    onClick={signIn()}
+                    loading={api.inProgress || !api.success}
                     className={styles.button}
                 >
                     <FormattedMessage id="login.card.googleButton" />
