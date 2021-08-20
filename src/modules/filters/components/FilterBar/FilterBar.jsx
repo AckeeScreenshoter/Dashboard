@@ -1,23 +1,29 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-
+import { useIntl } from 'react-intl';
 import { Select, Form, Row, Col } from 'antd';
+
 import { useFilters } from 'modules/filters';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
 
 import * as felaRules from './FilterBar.styles';
+
 const { Option } = Select;
 
 const FilterBar = () => {
     const { styles } = useFelaEnhanced(felaRules);
-
+    const intl = useIntl();
     const { appName, platform, deviceModel } = useFilters();
     return (
         <div className={styles.container}>
             <Form className={styles.container} size="large" layout="vertical">
-                <Row className={styles.row} gutter={16}>
+                <Row gutter={16} className={styles.row}>
                     <Col span={8} sm={2}>
-                        <Form.Item className={styles.formItem} label="App name" name="AppName">
+                        <Form.Item
+                            className={styles.formItem}
+                            label={intl.formatMessage({ id: 'filters.appName' })}
+                            name="AppName"
+                        >
                             <Select
                                 className={styles.select}
                                 showSearch
@@ -34,7 +40,11 @@ const FilterBar = () => {
                         </Form.Item>
                     </Col>
                     <Col span={8} sm={2}>
-                        <Form.Item className={styles.formItem} label="Platform" name="Platform">
+                        <Form.Item
+                            className={styles.formItem}
+                            label={intl.formatMessage({ id: 'filters.platform' })}
+                            name="Platform"
+                        >
                             <Select
                                 className={styles.select}
                                 showSearch
@@ -50,8 +60,12 @@ const FilterBar = () => {
                             </Select>
                         </Form.Item>
                     </Col>
-                    <Col xs={8} sm={2}>
-                        <Form.Item className={styles.formItem} label="Device model" name="DeviceModel">
+                    <Col span={8} sm={2}>
+                        <Form.Item
+                            className={styles.formItem}
+                            label={intl.formatMessage({ id: 'filters.deviceModel' })}
+                            name="DeviceModel"
+                        >
                             <Select
                                 className={styles.select}
                                 showSearch

@@ -18,7 +18,7 @@ function* fetchReports() {
 
         snapshot.forEach(documentSnapshot => {
             results.push(storage.ref('6HyDpbhbfOqNxxvzTXb8.png').getDownloadURL());
-
+            // TO WORK with official firebase
             // results.push(storage.ref(documentSnapshot.id).getDownloadURL());
         });
         // eslint-disable-next-line compat/compat
