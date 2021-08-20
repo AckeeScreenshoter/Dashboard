@@ -1,7 +1,7 @@
 import { React, FormattedMessage, useDispatch, Auth, useSelector } from '../../dependencies';
 
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
-import Button from 'modules/ui/components/Button';
+import { Button } from 'modules/ui';
 import * as felaRules from './Login.styles';
 import { GoogleOutlined } from '@ant-design/icons';
 import { Card } from 'antd';

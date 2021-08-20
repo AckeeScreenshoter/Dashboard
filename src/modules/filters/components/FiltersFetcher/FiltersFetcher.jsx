@@ -1,11 +1,16 @@
 import React from 'react';
 import { childrenPropType } from '@ackee/lucas';
 import useFetchFilters from '../../hooks/useFetchFilters';
+import { Loader } from 'modules/ui';
 
 const FilterFetcher = ({ children }) => {
     const { success, inProgress } = useFetchFilters();
 
-    return <>{inProgress || !success ? <h1>Načítam</h1> : children}</>;
+    return (
+        <Loader show={inProgress || !success} inline={true}>
+            {children}
+        </Loader>
+    );
 };
 
 FilterFetcher.propTypes = {

@@ -1,24 +1,24 @@
 import React from 'react';
-import useFelaEnhanced from 'hooks/useFelaEnhanced';
-import { Select, Form, Space } from 'antd';
-import { useIntl } from 'react-intl';
 import { nanoid } from 'nanoid';
+import { useIntl } from 'react-intl';
+import { Select, Form, Row, Col } from 'antd';
 
-import FilterFetcher from 'modules/filters/components/FilterFetcher';
+import { useFilters } from 'modules/filters';
+import useFelaEnhanced from 'hooks/useFelaEnhanced';
+
 import * as felaRules from './FilterBar.styles';
-import useFilters from '../../hooks/useFilters';
+
 const { Option } = Select;
 
 const FilterBar = () => {
     const { styles } = useFelaEnhanced(felaRules);
     const intl = useIntl();
-
     const { appName, platform, deviceModel } = useFilters();
     return (
-        <FilterFetcher>
-            <div className={styles.container}>
-                <Form className={styles.container} size="large" layout="vertical">
-                    <Space size={'large'}>
+        <div className={styles.container}>
+            <Form className={styles.container} size="large" layout="vertical">
+                <Row gutter={16} className={styles.row}>
+                    <Col span={8} sm={2}>
                         <Form.Item
                             className={styles.formItem}
                             label={intl.formatMessage({ id: 'filters.appName' })}
@@ -26,7 +26,6 @@ const FilterBar = () => {
                         >
                             <Select
                                 className={styles.select}
-                                style={{ width: 200 }}
                                 showSearch
                                 optionFilterProp="children"
                                 placeholder="All"
@@ -39,6 +38,8 @@ const FilterBar = () => {
                                 ))}
                             </Select>
                         </Form.Item>
+                    </Col>
+                    <Col span={8} sm={2}>
                         <Form.Item
                             className={styles.formItem}
                             label={intl.formatMessage({ id: 'filters.platform' })}
@@ -46,7 +47,6 @@ const FilterBar = () => {
                         >
                             <Select
                                 className={styles.select}
-                                style={{ width: 200 }}
                                 showSearch
                                 optionFilterProp="children"
                                 placeholder="All"
@@ -59,6 +59,8 @@ const FilterBar = () => {
                                 ))}
                             </Select>
                         </Form.Item>
+                    </Col>
+                    <Col span={8} sm={2}>
                         <Form.Item
                             className={styles.formItem}
                             label={intl.formatMessage({ id: 'filters.deviceModel' })}
@@ -66,7 +68,6 @@ const FilterBar = () => {
                         >
                             <Select
                                 className={styles.select}
-                                style={{ width: 200 }}
                                 showSearch
                                 optionFilterProp="children"
                                 placeholder="All"
@@ -79,10 +80,10 @@ const FilterBar = () => {
                                 ))}
                             </Select>
                         </Form.Item>
-                    </Space>
-                </Form>
-            </div>
-        </FilterFetcher>
+                    </Col>
+                </Row>
+            </Form>
+        </div>
     );
 };
 

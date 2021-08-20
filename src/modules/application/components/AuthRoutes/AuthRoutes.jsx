@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
-import HomePage from 'modules/application/components/HomePage';
+import { HomePage } from 'modules/application';
 const routes = [
     {
         render: () => <HomePage />,

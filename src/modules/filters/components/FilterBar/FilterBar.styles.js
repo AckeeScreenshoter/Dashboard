@@ -1,7 +1,11 @@
 export const container = () => ({
     display: 'flex',
+    width: '100%',
 });
-// remove !important
+export const row = () => ({
+    width: '100%',
+});
+//  TODO: remove !important
 export const select = ({ theme }) => ({
     '& .ant-select-selector': {
         borderRadius: theme.borderRadiuses.small + '!important',

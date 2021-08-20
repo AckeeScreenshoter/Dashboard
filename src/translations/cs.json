@@ -21,6 +21,7 @@
     "login.card.googleButton": "Sign in with Google",
     "button.delete": "Delete",
     "filters.appName": "App name",
+    "loader.title": "Loading",
     "filters.platform": "Platform",
     "filters.deviceModel": "Device model"
 }

@@ -10,7 +10,6 @@ export const container = () => ({
 export const card = ({ theme }) => ({
     borderRadius: theme.borderRadiuses.medium,
     minWidth: '30vw',
-
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
