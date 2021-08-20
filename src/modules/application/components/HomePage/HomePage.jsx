@@ -2,20 +2,16 @@ import React from 'react';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
 
 import * as felaRules from './HomePage.styles';
-import { ReportsList, ReportsFetcher } from 'modules/reports';
-import { FiltersFetcher, FilterBar } from 'modules/filters';
+import { Reports } from 'modules/reports';
+import { Filters } from 'modules/filters';
 
 const HomePage = () => {
     const { styles } = useFelaEnhanced(felaRules);
     return (
         <>
-            <FiltersFetcher>
-                <FilterBar />
-            </FiltersFetcher>
+            <Filters />
             <div className={styles.container}>
-                <ReportsFetcher>
-                    <ReportsList />
-                </ReportsFetcher>
+                <Reports />
             </div>
         </>
     );
