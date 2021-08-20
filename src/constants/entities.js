@@ -7,6 +7,8 @@ export const EntityKeys = {
 };
 export const ApiKeys = {
     ...EntityKeys,
+    REPORT: 'report',
+    AUTH: 'auth',
 };
 export const ApiTypes = {
     GET: 'get',

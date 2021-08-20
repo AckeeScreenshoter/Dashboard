@@ -18,7 +18,12 @@ const Login = () => {
                 <h1 className={styles.title}>
                     <FormattedMessage id="login.card.title" />
                 </h1>
-                <Button icon={<GoogleOutlined />} onClick={login()} loading={api.inProgress} className={styles.button}>
+                <Button
+                    icon={<GoogleOutlined />}
+                    onClick={login()}
+                    loading={api.inProgress || !api.success}
+                    className={styles.button}
+                >
                     <FormattedMessage id="login.card.googleButton" />
                 </Button>
             </Card>
