@@ -8,6 +8,7 @@ import { Button } from 'modules/ui';
 import * as felaRules from './Login.styles';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
 import useLogin from '../../hooks/useLogin';
+
 const Login = () => {
     const { signIn, api } = useLogin();
     const { styles } = useFelaEnhanced(felaRules);
@@ -17,12 +18,7 @@ const Login = () => {
                 <h1 className={styles.title}>
                     <FormattedMessage id="login.card.title" />
                 </h1>
-                <Button
-                    icon={<GoogleOutlined />}
-                    onClick={signIn()}
-                    loading={api.inProgress || !api.success}
-                    className={styles.button}
-                >
+                <Button icon={<GoogleOutlined />} onClick={signIn} loading={api.inProgress} className={styles.button}>
                     <FormattedMessage id="login.card.googleButton" />
                 </Button>
             </Card>
