@@ -8,29 +8,18 @@ import * as log from 'config/loglevel';
 import { createUIErrorMessage } from '../../../../utils/errors';
 import actions, { types } from '../actions';
 
+async function resolveData(documentSnapshot) {
+    const url = await storage.ref('6HyDpbhbfOqNxxvzTXb8.png').getDownloadURL();
+    return { ...documentSnapshot.data(), image: url, id: documentSnapshot.id };
+}
+
 function* fetchReports() {
     try {
-        // DO NOT DELETE the limit - it causes exceeding the firebase usage
+        // // DO NOT DELETE the limit - it causes exceeding the firebase usage
         const snapshot = yield firestore.collection('messages').limit(5).get();
-
-        const data = [];
-        const results = [];
-
-        snapshot.forEach(documentSnapshot => {
-            results.push(storage.ref('6HyDpbhbfOqNxxvzTXb8.png').getDownloadURL());
-            // TO WORK with official firebase
-            // results.push(storage.ref(documentSnapshot.id).getDownloadURL());
-        });
-        // eslint-disable-next-line compat/compat
-        const downloadURLs = yield Promise.all(results);
-
-        let id = 0;
-        snapshot.forEach(documentSnapshot => {
-            data.push({ ...documentSnapshot.data(), image: downloadURLs[id], id: documentSnapshot.id });
-            id++;
-        });
-
-        yield put(actions.fetchReportsSuccess(data));
+        const data = yield Promise.all(snapshot.docs.map(resolveData));
+        console.log(data);
+        yield put(actions.fetchReportsSuccess(''));
     } catch (error) {
         log.error(error);
 

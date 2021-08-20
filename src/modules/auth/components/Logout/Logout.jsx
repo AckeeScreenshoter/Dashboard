@@ -7,7 +7,7 @@ import useLogout from '../../hooks/useLogout';
 const Logout = () => {
     const { logout, api } = useLogout();
     return (
-        <Button onClick={logout()} loading={api.inProgress}>
+        <Button onClick={console.log('logout')} loading={api.inProgress}>
             <FormattedMessage id="button.logout" />
         </Button>
     );
