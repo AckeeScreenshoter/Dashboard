@@ -46,7 +46,7 @@ const FilterBar = () => {
                 className={styles.container}
                 onFieldsChange={() => handleChange(form)}
                 form={form}
-                // initialValues={{ appName: 'All', deviceModel: 'All', platform: 'All' }}
+                initialValues={{ appName: 'All', deviceModel: 'All', platform: 'All' }}
                 size="large"
                 layout="vertical"
             >

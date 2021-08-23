@@ -3,27 +3,29 @@ import { selectors, actions } from 'modules/entities/modules/reports';
 import React from 'react';
 
 export default function useFetchReports(defaultParams) {
+    const dispatch = useDispatch();
+
     const { cancelled, error, inProgress, lastSuccessAt, success } = useSelector(state =>
         selectors.getReportsApiSelector(state),
     );
-    console.log(inProgress);
-    const dispatch = useDispatch();
 
     const resetReports = React.useCallback(() => {
         dispatch(actions.fetchReportsReset());
         // eslint-disable-next-line
     }, []);
 
-    const fetchReports = React.useCallback(customParams => {
-        console.log(inProgress);
-
-        if (!inProgress) {
+    // TODO: remove this
+    const fetchReports = React.useCallback(
+        customParams => {
             const params = { ...defaultParams, ...customParams };
-            dispatch(actions.fetchReportsRequest(params));
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
+            if (!inProgress) {
+                dispatch(actions.fetchReportsRequest(params));
+                // eslint-disable-next-line react-hooks/exhaustive-deps
+            }
+        },
+        // eslint-disable-next-line
+        [inProgress],
+    );
     React.useEffect(() => {
         fetchReports();
         return resetReports;
