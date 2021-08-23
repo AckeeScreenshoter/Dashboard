@@ -5,7 +5,7 @@ const initialState = [];
 export default function listReportsReducer(state = initialState, action) {
     switch (action.type) {
         case types.FETCH_REPORTS_SUCCESS:
-            return [...action.payload];
+            return [...action.meta.id];
 
         case types.DELETE_REPORT_SUCCESS:
             const { id } = action.meta;

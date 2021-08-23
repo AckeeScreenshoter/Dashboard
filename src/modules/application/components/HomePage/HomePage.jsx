@@ -11,7 +11,7 @@ const HomePage = () => {
         <>
             <Filters />
             <div className={styles.container}>
-                <Reports />
+                s <Reports />
             </div>
         </>
     );

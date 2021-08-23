@@ -25,7 +25,6 @@ export default function useFetchFilters() {
     React.useEffect(() => {
         fetchFilters();
         return resetFilters;
-
         // eslint-disable-next-line
     }, []);
 

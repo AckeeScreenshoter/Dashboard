@@ -11,6 +11,7 @@ export const apiRequestType = createApiRequestType({
 export const FetchReportsTypes = apiRequestType({
     typePrefix: 'FETCH_REPORTS_',
 });
+
 export const DeleteReportTypes = apiRequestType({
     typePrefix: 'DELETE_REPORT_',
 });
