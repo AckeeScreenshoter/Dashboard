@@ -18,7 +18,7 @@ export function applyFilters(query, filters) {
 }
 
 async function resolveData(documentSnapshot) {
-    const url = await storage.ref('6HyDpbhbfOqNxxvzTXb8.png').getDownloadURL();
+    const url = await storage.ref(documentSnapshot.id).getDownloadURL();
     return { ...documentSnapshot.data(), image: url, id: documentSnapshot.id };
 }
 
