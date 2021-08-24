@@ -3,10 +3,10 @@ export const EntityKeys = {
     REPORT: 'report',
     FILTERS: 'filters',
     USER: 'user',
+    AUTH: 'auth',
 };
 export const ApiKeys = {
     ...EntityKeys,
-    AUTH: 'auth',
 };
 export const ApiTypes = {
     GET: 'get',
