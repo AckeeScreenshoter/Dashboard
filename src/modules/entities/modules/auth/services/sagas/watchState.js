@@ -1,9 +1,10 @@
-import { sagaEffects, auth, eventChannel } from '../../dependencies';
-
+import { eventChannel } from 'redux-saga';
+import { auth } from 'config/firebase';
 import { AuthFlowType } from '../../constants';
+import * as sagaEffects from 'redux-saga/effects';
+
 import { signInSuccess, signOutSuccess, setAuthFlowType } from '../actions';
 import { authFlowTypeSelector } from '../selectors';
-
 import { autoSignIn } from './credentialManagement';
 
 const { takeEvery, put, select } = sagaEffects;
