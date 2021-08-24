@@ -25,18 +25,18 @@ const FilterBar = () => {
     const filterProps = [
         {
             name: 'appName',
-            options: ['All'].concat(appName),
-            label: 'App name',
+            options: [intl.formatMessage({ id: 'all' })].concat(appName),
+            label: intl.formatMessage({ id: 'filters.appName' }),
         },
         {
             name: 'platform',
-            options: ['All'].concat(platform),
-            label: 'Platform',
+            options: [intl.formatMessage({ id: 'all' })].concat(platform),
+            label: intl.formatMessage({ id: 'filters.platform' }),
         },
         {
             name: 'deviceModel',
-            options: ['All'].concat(deviceModel),
-            label: 'Device model',
+            options: [intl.formatMessage({ id: 'all' })].concat(deviceModel),
+            label: intl.formatMessage({ id: 'filters.deviceModel' }),
         },
     ];
 
@@ -46,18 +46,18 @@ const FilterBar = () => {
                 className={styles.container}
                 onFieldsChange={() => handleChange(form)}
                 form={form}
-                initialValues={{ appName: 'All', deviceModel: 'All', platform: 'All' }}
+                initialValues={{
+                    appName: intl.formatMessage({ id: 'all' }),
+                    deviceModel: intl.formatMessage({ id: 'all' }),
+                    platform: intl.formatMessage({ id: 'all' }),
+                }}
                 size="large"
                 layout="vertical"
             >
                 <Row gutter={16} className={styles.row}>
                     {filterProps.map(select => (
                         <Col key={nanoid()} span={8} sm={2}>
-                            <Form.Item
-                                className={styles.formItem}
-                                label={intl.formatMessage({ id: `filters.${select.name}` })}
-                                name={select.name}
-                            >
+                            <Form.Item className={styles.formItem} label={select.label} name={select.name}>
                                 <Select
                                     className={styles.select}
                                     showSearch

@@ -24,5 +24,6 @@
     "loader.title": "Loading",
     "filters.platform": "Platform",
     "filters.deviceModel": "Device model",
-    "save.note": "Save"
+    "save.note": "Save",
+    "all": "All"
 }
