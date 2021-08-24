@@ -3,10 +3,16 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
 import { HomePage } from 'modules/application';
+import { Report } from 'modules/reports';
+
 const routes = [
     {
         render: () => <HomePage />,
         path: '/',
+    },
+    {
+        render: () => <Report />,
+        path: '/s/:id',
     },
     {
         render: () => <Redirect to={'/'} />,
