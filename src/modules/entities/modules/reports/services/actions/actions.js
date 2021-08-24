@@ -1,4 +1,4 @@
-import fetchReports from './fetchReports';
+import * as fetchReports from './fetchReports';
 import deleteReport from './deleteReport';
 
 export default {
