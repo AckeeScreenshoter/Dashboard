@@ -6,29 +6,29 @@ import { FormattedMessage } from 'react-intl';
 
 import * as felaRules from './NoteForm.styles';
 import Button from '../Button';
-
+import { useAddNote } from 'modules/reports';
 const { TextArea } = Input;
 
-const NoteForm = (id, note) => {
+const NoteForm = ({ id, note }) => {
+    const { addNote, api } = useAddNote();
     const { styles } = useFelaEnhanced(felaRules);
     const [form] = Form.useForm();
     const [isTouched, setIsTouched] = React.useState();
-    const onFinish = ({ note }) => {
-        console.log(id, note);
+    const onFinish = ({ newNote }) => {
+        addNote(id, newNote);
     };
     return (
-        <Form form={form} onFinish={onFinish}>
-            <Form.Item name="note">
+        <Form form={form} onFinish={onFinish} initialValues={{ newNote: note }}>
+            <Form.Item name="newNote">
                 <TextArea
                     onChange={() => {
                         setIsTouched(true);
                     }}
-                    value={note}
                     className={styles.TextArea}
                 />
             </Form.Item>
             <div className={styles.ButtonBox}>
-                <Button htmlType="submit" disabled={!isTouched} type="primary">
+                <Button htmlType="submit" loading={api.inProgress} disabled={!isTouched} type="primary">
                     <FormattedMessage id="save.note" />
                 </Button>
             </div>

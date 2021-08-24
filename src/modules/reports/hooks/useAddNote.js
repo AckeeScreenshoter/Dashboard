@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectors, actions } from 'modules/entities/modules/reports';
 
-export default function useDeleteReport(note) {
-    const api = useSelector(state => selectors.deleteReportApiSelector(state, id));
+export default function useDeleteReport(id, note) {
+    const api = useSelector(state => selectors.addNoteApiSelector(state, note, id));
     const dispatch = useDispatch();
-    const deleteReport = () => dispatch(actions.deleteReportRequest(id));
+
+    const addNote = (id, note) => dispatch(actions.addNoteRequest({ id, note }));
 
     return {
-        deleteReport,
+        addNote,
         api,
     };
 }

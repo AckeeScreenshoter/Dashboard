@@ -84,7 +84,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
                             </Col>
                         </div>
                         <Text className={styles.subTitle}>Note</Text>
-                        <NoteForm note={id} />
+                        <NoteForm id={id} note={note} />
                         <h3 className={styles.secondTitle}>Custom developer data</h3>
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.id" />
