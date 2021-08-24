@@ -12,7 +12,6 @@ export const fetchReportsSuccess = payload => ({
 
 export const fetchReportsFailure = error => ({
     type: types.FETCH_REPORTS_FAILURE,
-
     error,
 });
 
