@@ -7,6 +7,7 @@ import { apiReducers as auth } from 'modules/entities/modules/auth';
 
 export default combineReducers({
     ...auth,
-    [ApiKeys.REPORTS]: reports,
+    [ApiKeys.REPORTS]: reports.reports,
+    [ApiKeys.REPORT]: reports.report,
     [ApiKeys.FILTERS]: filters,
 });

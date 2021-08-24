@@ -23,7 +23,7 @@ async function resolveData(documentSnapshot) {
 }
 
 function* fetchReports(action) {
-    const filters = yield action.meta.id;
+    const filters = yield action.params;
 
     try {
         let query = yield firestore.collection('messages');
