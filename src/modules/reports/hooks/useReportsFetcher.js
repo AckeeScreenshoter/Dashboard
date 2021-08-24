@@ -9,23 +9,16 @@ export default function useFetchReports(defaultParams) {
         selectors.getReportsApiSelector(state),
     );
 
-    const resetReports = React.useCallback(() => {
+    const resetReports = () => {
         dispatch(actions.fetchReportsReset());
-        // eslint-disable-next-line
-    }, []);
+    };
 
-    // TODO: remove this
-    const fetchReports = React.useCallback(
-        customParams => {
-            const params = { ...defaultParams, ...customParams };
-            if (!inProgress) {
-                dispatch(actions.fetchReportsRequest(params));
-                // eslint-disable-next-line react-hooks/exhaustive-deps
-            }
-        },
-        // eslint-disable-next-line
-        [inProgress],
-    );
+    const fetchReports = customParams => {
+        const params = { ...defaultParams, ...customParams };
+        if (!inProgress) {
+            dispatch(actions.fetchReportsRequest(params));
+        }
+    };
     React.useEffect(() => {
         fetchReports();
         return resetReports;
