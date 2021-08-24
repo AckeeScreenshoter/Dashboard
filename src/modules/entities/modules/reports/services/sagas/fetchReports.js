@@ -23,28 +23,14 @@ async function resolveData(documentSnapshot) {
 }
 
 function* fetchReports(action) {
-    const filters = action.params;
+    const filters = yield action.meta.id;
 
     try {
+        let query = yield firestore.collection('messages');
+        query = yield applyFilters(query, filters);
         // DO NOT DELETE the limit - it causes exceeding the firebase usage
-        const snapshot = yield firestore.collection('messages').limit(5).get();
-
-        const data = [];
-        const results = [];
-
-        snapshot.forEach(documentSnapshot => {
-            results.push(storage.ref('6HyDpbhbfOqNxxvzTXb8.png').getDownloadURL());
-            // TODO :to work with official firebase
-            // results.push(storage.ref(documentSnapshot.id).getDownloadURL());
-        });
-        // eslint-disable-next-line compat/compat
-        const downloadURLs = yield Promise.all(results);
-
-        let id = 0;
-        snapshot.forEach(documentSnapshot => {
-            data.push({ ...documentSnapshot.data(), image: downloadURLs[id], id: documentSnapshot.id });
-            id++;
-        });
+        const snapshot = yield query.limit(5).get();
+        const data = yield Promise.all(snapshot.docs.map(resolveData));
 
         yield put(actions.fetchReportsSuccess(data));
     } catch (error) {

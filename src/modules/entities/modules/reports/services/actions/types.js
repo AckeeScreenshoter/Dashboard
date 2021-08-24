@@ -18,4 +18,5 @@ export const DeleteReportTypes = apiRequestType({
 export default strictObjectAccess({
     ...FetchReportsTypes,
     ...DeleteReportTypes,
+    ...A,
 });
