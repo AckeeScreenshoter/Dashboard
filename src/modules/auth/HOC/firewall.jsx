@@ -1,5 +1,9 @@
-import { React, useSelector, Auth } from '../dependencies';
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+import * as Auth from 'modules/entities/modules/auth';
 import { Loader } from 'modules/ui';
+
 const { AuthFlowType } = Auth.Consts;
 const { authFlowTypeSelector } = Auth.selectors;
 

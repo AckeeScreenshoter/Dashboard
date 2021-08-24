@@ -8,9 +8,7 @@ export default function listReportsReducer(state = initialState, action) {
             return [...action.payload];
         case types.ADD_NOTE_SUCCESS:
             const { id, note } = action.meta.id;
-
             return [...state.map(item => (item.id === id ? { ...item, note: note } : item))];
-
         case types.DELETE_REPORT_SUCCESS:
             return [...state.filter(item => item.id !== id)];
 
