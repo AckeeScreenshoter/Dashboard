@@ -3,7 +3,7 @@ import 'firebase/firestore';
 import 'firebase/storage';
 import 'firebase/auth';
 import config from './config';
-
+//  TODO refactor
 // Initialize firebase instance
 const app = firebase.initializeApp(config);
 
