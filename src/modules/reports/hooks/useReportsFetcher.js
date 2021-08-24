@@ -2,27 +2,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectors, actions } from 'modules/entities/modules/reports';
 import React from 'react';
 
-export default function useFetchReports() {
+export default function useFetchReports(defaultParams) {
+    const dispatch = useDispatch();
+
     const { cancelled, error, inProgress, lastSuccessAt, success } = useSelector(state =>
         selectors.getReportsApiSelector(state),
     );
 
-    const dispatch = useDispatch();
-
-    const resetReports = React.useCallback(() => {
+    const resetReports = () => {
         dispatch(actions.fetchReportsReset());
+    };
 
-        // eslint-disable-next-line
-    }, []);
-
-    const fetchReports = React.useCallback(() => {
+    const fetchReports = customParams => {
+        const params = { ...defaultParams, ...customParams };
         if (!inProgress) {
-            dispatch(actions.fetchReportsRequest());
+            dispatch(actions.fetchReportsRequest(params));
         }
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
+    };
     React.useEffect(() => {
         fetchReports();
         return resetReports;

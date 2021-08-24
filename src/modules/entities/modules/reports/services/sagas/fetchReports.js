@@ -8,16 +8,30 @@ import * as log from 'config/loglevel';
 import { createUIErrorMessage } from '../../../../utils/errors';
 import actions, { types } from '../actions';
 
+export function applyFilters(query, filters) {
+    for (const [filter, value] of Object.entries(filters || {})) {
+        if (String(value).toLowerCase() !== 'all') {
+            query = query.where(filter, '==', value);
+        }
+    }
+    return query;
+}
+
 async function resolveData(documentSnapshot) {
-    const url = await storage.ref('6HyDpbhbfOqNxxvzTXb8.png').getDownloadURL();
+    const url = await storage.ref(documentSnapshot.id).getDownloadURL();
     return { ...documentSnapshot.data(), image: url, id: documentSnapshot.id };
 }
 
-function* fetchReports() {
+function* fetchReports(action) {
+    const filters = yield action.params;
+
     try {
-        // // DO NOT DELETE the limit - it causes exceeding the firebase usage
-        const snapshot = yield firestore.collection('messages').limit(5).get();
+        let query = yield firestore.collection('messages');
+        query = yield applyFilters(query, filters);
+        // DO NOT DELETE the limit - it causes exceeding the firebase usage
+        const snapshot = yield query.limit(5).get();
         const data = yield Promise.all(snapshot.docs.map(resolveData));
+
         yield put(actions.fetchReportsSuccess(data));
     } catch (error) {
         log.error(error);

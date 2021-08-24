@@ -8,10 +8,10 @@ import { createUIErrorMessage } from '../../../../utils/errors';
 import actions, { types } from '../actions';
 
 function* addNote(action) {
-    const report = action.meta.id;
+    const { id, note } = action.params;
     try {
-        yield firestore.collection('messages').doc(report.id).update({ note: report.note });
-        yield put(actions.addNoteSuccess(report));
+        yield firestore.collection('messages').doc(id).update({ note: note });
+        yield put(actions.addNoteSuccess({ id, note }));
     } catch (error) {
         log.error(error);
         const uiError = createUIErrorMessage(error);

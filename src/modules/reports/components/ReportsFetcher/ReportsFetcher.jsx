@@ -5,7 +5,12 @@ import { Loader } from 'modules/ui';
 import { useReportsFetcher } from 'modules/reports';
 
 const ReportsFetcher = ({ children }) => {
-    const { success, inProgress } = useReportsFetcher();
+    const defaultParams = {
+        appName: 'All',
+        deviceModel: 'All',
+        platform: 'All',
+    };
+    const { success, inProgress } = useReportsFetcher(defaultParams);
 
     return <Loader show={inProgress || !success}>{children}</Loader>;
 };

@@ -9,7 +9,6 @@ export const row = () => ({
 export const select = ({ theme }) => ({
     '& .ant-select-selector': {
         borderRadius: theme.borderRadiuses.small + '!important',
-        borderColor: theme.colors.secondaryText,
     },
     ':hover': {
         borderColor: theme.colors.secondaryText,

@@ -1,5 +1,5 @@
 import { basicApiReducer } from '@ackee/redux-utils';
-import { types } from '../../actions';
+import { types } from '../../../actions';
 
 export default basicApiReducer({
     actionTypes: {

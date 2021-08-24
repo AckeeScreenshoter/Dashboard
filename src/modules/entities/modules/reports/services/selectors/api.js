@@ -7,8 +7,8 @@ export const getReportsApiSelector = state => {
 };
 
 export const deleteReportApiSelector = state => {
-    return apiSelector(state, ApiKeys.REPORTS, ApiTypes.DELETE);
+    return apiSelector(state, ApiKeys.REPORT, ApiTypes.DELETE);
 };
 export const addNoteApiSelector = state => {
-    return apiSelector(state, ApiKeys.REPORTS, ApiTypes.PUT);
+    return apiSelector(state, ApiKeys.REPORT, ApiTypes.PUT);
 };

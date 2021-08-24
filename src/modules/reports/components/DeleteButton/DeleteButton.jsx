@@ -8,11 +8,9 @@ import { useDeleteReport } from 'modules/reports';
 const DeleteButton = ({ id, onCancel }) => {
     const { deleteReport } = useDeleteReport(id);
     const handleClick = () => {
+        deleteReport();
         if (onCancel) {
             onCancel();
-            deleteReport(deleteReport);
-        } else {
-            deleteReport(deleteReport);
         }
     };
     return (
