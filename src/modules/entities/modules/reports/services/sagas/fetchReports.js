@@ -17,7 +17,7 @@ function* fetchReports() {
         const results = [];
 
         snapshot.forEach(documentSnapshot => {
-            results.push(storage.ref('6HyDpbhbfOqNxxvzTXb8.png').getDownloadURL());
+            results.push(storage.ref(documentSnapshot.id).getDownloadURL());
             // TODO :to work with official firebase
             // results.push(storage.ref(documentSnapshot.id).getDownloadURL());
         });
