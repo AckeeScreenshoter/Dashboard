@@ -7,10 +7,7 @@ export const row = () => ({
 });
 //  TODO: remove !important
 export const select = ({ theme }) => ({
-    '& .ant-select-selection': {
-        backgroundColor: 'green',
-    },
-    '&  .ant-select-selector': {
+    '& .ant-select-selector': {
         borderRadius: theme.borderRadiuses.small + '!important',
     },
     ':hover': {
