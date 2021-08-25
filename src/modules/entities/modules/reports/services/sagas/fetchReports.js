@@ -18,8 +18,8 @@ export function applyFilters(query, filters) {
 }
 
 async function resolveData(documentSnapshot) {
-    // const url = await storage.ref(documentSnapshot.id).getDownloadURL();
-    return { ...documentSnapshot.data(), image: 'sd', id: documentSnapshot.id };
+    const url = await storage.ref(documentSnapshot.id).getDownloadURL();
+    return { ...documentSnapshot.data(), image: url, id: documentSnapshot.id };
 }
 
 function* fetchReports(action) {
