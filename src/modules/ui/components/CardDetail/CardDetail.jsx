@@ -18,6 +18,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
         platform,
         appVersion,
         date,
+        customData,
         note,
         bundleId,
         deviceModel,
@@ -54,7 +55,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
                 ]}
             >
                 <Row>
-                    <Col className={styles.textBox} xs={12}>
+                    <Col className={styles.textBox} xs={24} md={12}>
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.appName" />
                         </Text>
@@ -95,7 +96,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.id" />
                         </Text>
-                        <Paragraph className={styles.subName}>{bundleId}</Paragraph>
+                        <Paragraph className={styles.subName}>{id}</Paragraph>
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.osVersion" />
                         </Text>
@@ -116,13 +117,13 @@ const CardDetail = ({ message, onCancel, visible }) => {
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.customData" />
                         </Text>
-                        <Paragraph className={styles.subName}>customData</Paragraph>
+                        <Paragraph className={styles.subName}>{JSON.stringify(customData)}</Paragraph>
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.buildNumber" />
                         </Text>
                         <Paragraph className={styles.subName}>{buildNumber}</Paragraph>
                     </Col>
-                    <Col xs={12} className={styles.screenBox}>
+                    <Col xs={24} md={12} className={styles.screenBox}>
                         <img alt={appName} className={styles.screenshot} src={image} />
                     </Col>
                 </Row>

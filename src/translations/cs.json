@@ -25,5 +25,6 @@
     "filters.platform": "Platform",
     "filters.deviceModel": "Device model",
     "save.note": "Save",
-    "all": "All"
+    "all": "All",
+    "nothing.found": "Nothing was found"
 }

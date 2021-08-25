@@ -6,3 +6,8 @@ export const item = () => ({
     marginBottom: '0.5rem',
     width: '100%',
 });
+
+export const empty = ({ theme }) => ({
+    margin: '0 auto',
+    color: theme.colors.secondaryText,
+});

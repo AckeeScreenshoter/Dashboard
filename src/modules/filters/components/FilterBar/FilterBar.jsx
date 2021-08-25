@@ -56,7 +56,7 @@ const FilterBar = () => {
             >
                 <Row gutter={16} className={styles.row}>
                     {filterProps.map(select => (
-                        <Col key={nanoid()} span={8} sm={3}>
+                        <Col key={nanoid()} span={8} lg={3}>
                             <Form.Item className={styles.formItem} label={select.label} name={select.name}>
                                 <Select
                                     className={styles.select}
