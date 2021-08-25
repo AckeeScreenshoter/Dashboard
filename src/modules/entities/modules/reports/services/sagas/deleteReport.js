@@ -10,8 +10,8 @@ import actions, { types } from '../actions';
 function* deleteReport(action) {
     const { id } = action.meta;
     try {
-        yield firestore.collection('messages').doc(id).delete();
-        yield storage.ref(id).delete();
+        // yield firestore.collection('messages').doc(id).delete();
+        // yield storage.ref(id).delete();
         yield put(actions.deleteReportSuccess(id));
     } catch (error) {
         log.error(error);

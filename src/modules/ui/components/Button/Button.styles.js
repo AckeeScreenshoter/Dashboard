@@ -17,7 +17,7 @@ export const button = ({ theme, type }) => {
         border: 'none',
         boxShadow: 'none',
         fontSize: '90%',
-        paddingLeft: 0,
+
         fontWeight: 500,
         letterSpacing: 0.4,
 

@@ -15,10 +15,10 @@ export default function firewall(AuthContent, PublicContent) {
             case AuthFlowType.INDETERMINATED:
                 return <Loader show={true} />;
 
-            case AuthFlowType.ANONYMOUS:
+            case AuthFlowType.AUTHENTICATED:
                 return <PublicContent />;
 
-            case AuthFlowType.AUTHENTICATED:
+            case AuthFlowType.ANONYMOUS:
                 return <AuthContent />;
 
             default:

@@ -17,7 +17,7 @@ const DataCard = ({ message, onClick }) => {
     return (
         <Card onClick={onClick} hoverable className={styles.card}>
             <Row>
-                <Col xs={{ span: 24 }} xxl={{ span: 7 }} xl={{ span: 8 }}>
+                <Col xs={{ span: 24 }} xxl={{ span: 7 }} xl={{ span: 10 }}>
                     <img
                         src={message.image && message.mediaUploaded ? message.image : videoImg}
                         alt={message.appName}
@@ -42,7 +42,7 @@ const DataCard = ({ message, onClick }) => {
                                 htmlType="button"
                                 type="primary"
                                 onClick={() => {
-                                    navigator.clipboard.writeText(`http://localhost:3000/s/${message.id}`);
+                                    navigator.clipboard.writeText(`${window.location.origin}/s/${message.id}`);
                                 }}
                                 icon={<CopyOutlined />}
                             >

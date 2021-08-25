@@ -18,8 +18,8 @@ export function applyFilters(query, filters) {
 }
 
 async function resolveData(documentSnapshot) {
-    const url = await storage.ref(documentSnapshot.id).getDownloadURL();
-    return { ...documentSnapshot.data(), image: url, id: documentSnapshot.id };
+    // const url = await storage.ref(documentSnapshot.id).getDownloadURL();
+    return { ...documentSnapshot.data(), image: 'sd', id: documentSnapshot.id };
 }
 
 function* fetchReports(action) {
@@ -29,7 +29,8 @@ function* fetchReports(action) {
         let query = yield firestore.collection('messages');
         query = yield applyFilters(query, filters);
         // DO NOT DELETE the limit - it causes exceeding the firebase usage
-        const snapshot = yield query.limit(5).get();
+        const snapshot = yield query.limit(5).orderBy('date', 'desc').get();
+
         const data = yield Promise.all(snapshot.docs.map(resolveData));
 
         yield put(actions.fetchReportsSuccess(data));

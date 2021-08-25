@@ -44,7 +44,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
                         <DeleteButton onCancel={onCancel} id={id} />
                         <Button
                             onClick={() => {
-                                navigator.clipboard.writeText(`http://localhost:3000/s/${id}`);
+                                navigator.clipboard.writeText(`${window.location.origin}/s/${id}`);
                             }}
                             type="primary"
                             icon={<CopyOutlined />}
@@ -135,6 +135,7 @@ CardDetail.propTypes = {
     message: PropTypes.shape({
         id: PropTypes.string,
         mediaUploaded: PropTypes.bool,
+        customData: PropTypes.object,
         image: PropTypes.string,
         appName: PropTypes.string,
         date: PropTypes.shape({
