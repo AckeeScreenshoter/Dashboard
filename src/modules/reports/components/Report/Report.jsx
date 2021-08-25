@@ -1,16 +1,11 @@
 import React from 'react';
-import useFelaEnhanced from 'hooks/useFelaEnhanced';
-import * as felaRules from './Report.styles';
-import { useParams } from 'react-router-dom';
-const Report = () => {
-    const { styles } = useFelaEnhanced(felaRules);
-    const { id } = useParams();
+import ReportDetail from '../ReportDetail';
+import ReportFetcher from '../ReportFetcher';
 
-    return (
-        <div className={styles.container}>
-            <h1>{id}</h1>
-        </div>
-    );
-};
+const Report = () => (
+    <ReportFetcher>
+        <ReportDetail />
+    </ReportFetcher>
+);
 
 export default Report;

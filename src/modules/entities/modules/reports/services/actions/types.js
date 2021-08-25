@@ -18,9 +18,13 @@ export const DeleteReportTypes = apiRequestType({
 export const AddNoteTypes = apiRequestType({
     typePrefix: 'ADD_NOTE_',
 });
+export const FetchReportTypes = apiRequestType({
+    typePrefix: 'FETCH_REPORT_',
+});
 
 export default strictObjectAccess({
     ...FetchReportsTypes,
     ...DeleteReportTypes,
     ...AddNoteTypes,
+    ...FetchReportTypes,
 });

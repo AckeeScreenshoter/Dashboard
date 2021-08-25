@@ -2,6 +2,7 @@ export const TextArea = ({ theme }) => ({
     fontSize: '90%',
     borderRadius: theme.borderRadiuses.small,
     width: '100%',
+    marginBottom: '0',
 
     borderColor: theme.colors.icon,
     ':hover': {
@@ -9,8 +10,11 @@ export const TextArea = ({ theme }) => ({
         borderColor: theme.colors.icon,
     },
 });
+export const FormItem = () => ({
+    marginBottom: '0',
+});
 export const ButtonBox = ({ theme }) => ({
-    marginTop: '0.2rem',
+    marginTop: '0rem',
     display: 'flex',
     justifyContent: 'flex-end',
     '& > .ant-btn[disabled]': {

@@ -6,6 +6,4 @@ const Reports = () => (
     </ReportsFetcher>
 );
 
-Reports.propTypes = {};
-
 export default Reports;

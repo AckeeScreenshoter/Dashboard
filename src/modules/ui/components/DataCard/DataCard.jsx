@@ -35,7 +35,14 @@ const DataCard = ({ message, onClick }) => {
                         <div onClick={e => e.stopPropagation()} className={styles.buttonBox}>
                             <DeleteButton id={message.id} />
 
-                            <Button htmlType="button" type="primary" icon={<CopyOutlined />}>
+                            <Button
+                                htmlType="button"
+                                type="primary"
+                                onClick={() => {
+                                    navigator.clipboard.writeText(`http://localhost:3000/s/${message.id}`);
+                                }}
+                                icon={<CopyOutlined />}
+                            >
                                 <FormattedMessage id="card.button.copy" />
                             </Button>
                         </div>

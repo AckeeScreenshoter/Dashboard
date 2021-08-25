@@ -41,7 +41,13 @@ const CardDetail = ({ message, onCancel, visible }) => {
                 footer={[
                     <div key={'id'}>
                         <DeleteButton onCancel={onCancel} id={id} />
-                        <Button type="primary" icon={<CopyOutlined />}>
+                        <Button
+                            onClick={() => {
+                                navigator.clipboard.writeText(`http://localhost:3000/s/${id}`);
+                            }}
+                            type="primary"
+                            icon={<CopyOutlined />}
+                        >
                             <FormattedMessage id="card.button.copy" />
                         </Button>
                     </div>,
