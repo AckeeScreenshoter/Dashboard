@@ -141,6 +141,7 @@ CardDetail.propTypes = {
             seconds: PropTypes.number,
             nanoseconds: PropTypes.number,
         }),
+        customData: PropTypes.object,
         platform: PropTypes.string,
         deviceMake: PropTypes.string,
         note: PropTypes.string,

@@ -6,6 +6,7 @@ export const card = ({ theme }) => ({
     border: `2px solid ${theme.colors.white}`,
     boxShadow: `5px 5px 20px 0px ${theme.colors.secondaryShadow}`,
     width: '100%',
+    height: '100%',
 
     '& h3.ant-typography': {
         fontSize: '1.125rem',

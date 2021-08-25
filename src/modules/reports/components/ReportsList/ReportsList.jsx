@@ -13,7 +13,6 @@ const ReportsList = () => {
     const handleCancel = () => {
         setDetailData(null);
     };
-    console.log(data);
     return (
         <div className={styles.container}>
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
