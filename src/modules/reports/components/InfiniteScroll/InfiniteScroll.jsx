@@ -5,7 +5,6 @@ import { useReportFetcher } from 'modules/reports';
 
 const InfiniteScrollWrap = ({ items, next }) => {
     const onScroll = () => {
-        x;
         console.log('on load');
     };
     return (

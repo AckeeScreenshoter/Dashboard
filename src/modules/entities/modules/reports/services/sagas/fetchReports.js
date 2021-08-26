@@ -31,7 +31,12 @@ function* fetchReports(action) {
         // DO NOT DELETE the limit - it causes exceeding the firebase usage
         const snapshot = yield query.limit(5).orderBy('date', 'desc').get();
 
-        const data = yield Promise.all(snapshot.docs.map(resolveData));
+        const data = yield Promise.all(
+            snapshot.docs.forEach(doc => {
+                return resolveData(doc);
+            }),
+        );
+        console.log(data);
 
         yield put(actions.fetchReportsSuccess(data));
     } catch (error) {
