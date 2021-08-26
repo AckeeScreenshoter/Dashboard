@@ -4,6 +4,7 @@ import { CopyOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
 import { FormattedMessage, FormattedDate } from 'react-intl';
+import config from 'config/index';
 
 import * as felaRules from './CardDetail.styles';
 import Button from '../Button';
@@ -18,6 +19,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
         platform,
         appVersion,
         date,
+        customData,
         note,
         bundleId,
         deviceModel,
@@ -41,14 +43,20 @@ const CardDetail = ({ message, onCancel, visible }) => {
                 footer={[
                     <div key={'id'}>
                         <DeleteButton onCancel={onCancel} id={id} />
-                        <Button type="primary" icon={<CopyOutlined />}>
+                        <Button
+                            onClick={() => {
+                                navigator.clipboard.writeText(`${config.appUrl}/s/${id}`);
+                            }}
+                            type="primary"
+                            icon={<CopyOutlined />}
+                        >
                             <FormattedMessage id="card.button.copy" />
                         </Button>
                     </div>,
                 ]}
             >
                 <Row>
-                    <Col className={styles.textBox} xs={12}>
+                    <Col className={styles.textBox} xs={24} md={12}>
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.appName" />
                         </Text>
@@ -89,7 +97,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.id" />
                         </Text>
-                        <Paragraph className={styles.subName}>{bundleId}</Paragraph>
+                        <Paragraph className={styles.subName}>{id}</Paragraph>
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.osVersion" />
                         </Text>
@@ -110,13 +118,13 @@ const CardDetail = ({ message, onCancel, visible }) => {
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.customData" />
                         </Text>
-                        <Paragraph className={styles.subName}>customData</Paragraph>
+                        <Paragraph className={styles.subName}>{JSON.stringify(customData)}</Paragraph>
                         <Text className={styles.subTitle}>
                             <FormattedMessage id="card.detail.buildNumber" />
                         </Text>
                         <Paragraph className={styles.subName}>{buildNumber}</Paragraph>
                     </Col>
-                    <Col xs={12} className={styles.screenBox}>
+                    <Col xs={24} md={12} className={styles.screenBox}>
                         <img alt={appName} className={styles.screenshot} src={image} />
                     </Col>
                 </Row>
@@ -134,6 +142,7 @@ CardDetail.propTypes = {
             seconds: PropTypes.number,
             nanoseconds: PropTypes.number,
         }),
+        customData: PropTypes.object,
         platform: PropTypes.string,
         deviceMake: PropTypes.string,
         note: PropTypes.string,

@@ -6,7 +6,6 @@ import { configureStore } from '../config';
 
 function Redux({ children }) {
     const store = configureStore();
-
     return <Provider store={store}>{children}</Provider>;
 }
 

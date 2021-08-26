@@ -12,3 +12,6 @@ export const deleteReportApiSelector = state => {
 export const addNoteApiSelector = state => {
     return apiSelector(state, ApiKeys.REPORT, ApiTypes.PUT);
 };
+export const fetchReportApiSelector = state => {
+    return apiSelector(state, ApiKeys.REPORT, ApiTypes.GET);
+};

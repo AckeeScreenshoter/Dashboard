@@ -10,32 +10,41 @@ import DeleteButton from 'modules/reports/components/DeleteButton';
 import * as felaRules from './DataCard.styles';
 import Button from '../Button';
 import videoImg from 'assets/images/thumbnail_vid.png';
+import config from 'config/index';
 
 const DataCard = ({ message, onClick }) => {
     const { styles } = useFelaEnhanced(felaRules);
+    const { appName, date, note, deviceMake, mediaUploaded, image, id } = message;
 
     return (
         <Card onClick={onClick} hoverable className={styles.card}>
             <Row>
                 <Col xs={{ span: 24 }} xxl={{ span: 7 }} xl={{ span: 8 }}>
-                    <img src={message.mediaUploaded ? message.image : videoImg} alt={message.appName} />
+                    <img src={image && mediaUploaded ? image : videoImg} alt={appName} />
                 </Col>
                 <Col xs={{ span: 24 }} xxl={{ span: 15 }} xl={{ span: 14 }}>
                     <div className={styles.contentWrapper}>
                         <div className={styles.cardHeader}>
                             <div>
                                 <Typography.Text className={styles.createdAt}>
-                                    {format(message.date.seconds * 1000, 'dd. mm. yyyy, HH:mm')}
+                                    {format(date.seconds * 1000, 'dd. mm. yyyy, HH:mm')}
                                 </Typography.Text>
-                                <Typography.Title level={3}>{message.appName}</Typography.Title>
+                                <Typography.Title level={3}>{appName}</Typography.Title>
                             </div>
-                            {message.deviceMake === 'samsung' ? <AndroidFilled /> : <AppleFilled />}
+                            {deviceMake === 'samsung' ? <AndroidFilled /> : <AppleFilled />}
                         </div>
-                        {message.note && <Typography.Paragraph>{message.note}</Typography.Paragraph>}
+                        {note && <Typography.Paragraph>{note}</Typography.Paragraph>}
                         <div onClick={e => e.stopPropagation()} className={styles.buttonBox}>
-                            <DeleteButton id={message.id} />
+                            <DeleteButton id={id} />
 
-                            <Button htmlType="button" type="primary" icon={<CopyOutlined />}>
+                            <Button
+                                htmlType="button"
+                                type="primary"
+                                onClick={() => {
+                                    navigator.clipboard.writeText(`${config.appUrl}/s/${id}`);
+                                }}
+                                icon={<CopyOutlined />}
+                            >
                                 <FormattedMessage id="card.button.copy" />
                             </Button>
                         </div>

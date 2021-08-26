@@ -19,7 +19,7 @@ const NoteForm = ({ id, note }) => {
     };
     return (
         <Form form={form} onFinish={onFinish} initialValues={{ newNote: note }}>
-            <Form.Item name="newNote">
+            <Form.Item className={styles.FormItem} name="newNote">
                 <TextArea
                     onChange={() => {
                         setIsTouched(true);

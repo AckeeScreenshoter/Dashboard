@@ -12,6 +12,8 @@ export default function listReportsReducer(state = initialState, action) {
         case types.DELETE_REPORT_SUCCESS:
             const { meta } = action;
             return [...state.filter(item => item.id !== meta.id)];
+        case types.FETCH_REPORT_RESET:
+            return initialState;
         default:
             return state;
     }
