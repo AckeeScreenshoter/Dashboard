@@ -5,7 +5,7 @@ const initialState = [];
 export default function listReportsReducer(state = initialState, action) {
     switch (action.type) {
         case types.FETCH_REPORTS_SUCCESS:
-            return [...action.payload];
+            return { data: [...action.payload], lastKey: action.params };
         case types.ADD_NOTE_SUCCESS:
             const { params } = action;
             return [...state.map(item => (item.id === params.id ? { ...item, note: params.note } : item))];

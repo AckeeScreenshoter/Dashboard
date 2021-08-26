@@ -14,8 +14,7 @@ import { nanoid } from 'nanoid';
 const ReportsList = () => {
     const { styles } = useFelaEnhanced(felaRules);
     const [detailData, setDetailData] = React.useState(null);
-    const data = useReports();
-    const { fetchReports, inProgress } = useReportsFetcher();
+    const { data, lastKey } = useReports();
 
     const handleCancel = () => {
         setDetailData(null);
@@ -30,7 +29,7 @@ const ReportsList = () => {
     });
     return (
         <div className={styles.container}>
-            <InfiniteScrollWrap next={fetchReports} items={items} />
+            <InfiniteScrollWrap items={items} />
             {/* {!data.length <= 0 ? (
                     data.map(message => (
                         <Col className={styles.item} md={12} lg={8} key={message.date?.seconds}>
