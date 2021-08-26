@@ -4,9 +4,7 @@ import React from 'react';
 
 export default function useFetchReports(id) {
     const dispatch = useDispatch();
-    const { cancelled, error, inProgress, lastSuccessAt, success } = useSelector(state =>
-        selectors.fetchReportApiSelector(state),
-    );
+    const { cancelled, error, inProgress, lastSuccessAt, success } = useSelector(selectors.fetchReportApiSelector);
 
     const resetReport = () => {
         dispatch(actions.fetchReportReset());
@@ -26,8 +24,8 @@ export default function useFetchReports(id) {
     return {
         cancelled,
         error,
-        success,
         inProgress,
         lastSuccessAt,
+        success,
     };
 }

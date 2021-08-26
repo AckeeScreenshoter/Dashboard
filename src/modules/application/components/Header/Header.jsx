@@ -11,7 +11,6 @@ const Header = () => {
     return (
         <header className={styles.container}>
             <Logo />
-            {/* <Logout /> */}
             <div>
                 <FormattedMessage id="page.header.madeWithLove" />{' '}
                 <a href="https://ackee.cz" target="_blank" rel="noreferrer">

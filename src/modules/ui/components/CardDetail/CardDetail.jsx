@@ -4,6 +4,7 @@ import { CopyOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
 import { FormattedMessage, FormattedDate } from 'react-intl';
+import config from 'config/index';
 
 import * as felaRules from './CardDetail.styles';
 import Button from '../Button';
@@ -44,7 +45,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
                         <DeleteButton onCancel={onCancel} id={id} />
                         <Button
                             onClick={() => {
-                                navigator.clipboard.writeText(`http://localhost:3000/s/${id}`);
+                                navigator.clipboard.writeText(`${config.appUrl}/s/${id}`);
                             }}
                             type="primary"
                             icon={<CopyOutlined />}

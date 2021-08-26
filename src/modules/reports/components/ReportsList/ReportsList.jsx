@@ -18,7 +18,7 @@ const ReportsList = () => {
             <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                 {data.length >= 0 ? (
                     data.map(message => (
-                        <Col className={styles.item} md={12} lg={8} key={message.date?.seconds}>
+                        <Col className={styles.item} md={12} lg={8} key={message.id}>
                             <DataCard message={message} onClick={() => setDetailData(message)} />
                         </Col>
                     ))
