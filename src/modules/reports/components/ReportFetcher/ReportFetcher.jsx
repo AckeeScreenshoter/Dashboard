@@ -7,9 +7,8 @@ import { useReportFetcher } from 'modules/reports';
 const ReportFetcher = ({ children }) => {
     const { id } = useParams();
 
-    const { success, inProgress, error } = useReportFetcher(id);
-    console.log('error' + error);
-    return <Loader show={inProgress || !success || !error}>{children}</Loader>;
+    const { inProgress } = useReportFetcher(id);
+    return <Loader show={inProgress}>{children}</Loader>;
 };
 
 ReportFetcher.propTypes = {
