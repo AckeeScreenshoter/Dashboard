@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import { Select, Form, Row, Col } from 'antd';
 
 import { useFilters } from 'modules/filters';
-import { useReportsFetcher } from 'modules/reports';
+import { useFetchReports } from 'modules/reports';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
 import * as felaRules from './FilterBar.styles';
 
@@ -14,14 +14,15 @@ const FilterBar = () => {
     const { styles } = useFelaEnhanced(felaRules);
     const intl = useIntl();
 
-    const { fetchReports, inProgress } = useReportsFetcher();
+    const { fetchReports, inProgress } = useFetchReports();
     const { appName, platform, deviceModel } = useFilters();
 
     const [form] = Form.useForm();
 
     const handleChange = form => {
-        fetchReports(form.getFieldsValue());
+        fetchReports({ filters: form.getFieldsValue(), lastKey: '', reset: true });
     };
+
     const filterProps = [
         {
             name: 'appName',

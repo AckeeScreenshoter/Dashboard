@@ -2,17 +2,15 @@ import React from 'react';
 import { childrenPropType } from '@ackee/lucas';
 
 import { Loader } from 'modules/ui';
-import { useReportsFetcher } from 'modules/reports';
+import { useFetchReports } from 'modules/reports';
 
 const ReportsFetcher = ({ children }) => {
-    const defaultParams = {
-        appName: 'All',
-        deviceModel: 'All',
-        platform: 'All',
-    };
-    const { success, inProgress } = useReportsFetcher(defaultParams);
+    // React.useEffect(() => {
+    //     fetchReports();
+    //     // eslint-disable-next-line
+    // }, []);
 
-    return <Loader show={inProgress || !success}>{children}</Loader>;
+    return children;
 };
 
 ReportsFetcher.propTypes = {
