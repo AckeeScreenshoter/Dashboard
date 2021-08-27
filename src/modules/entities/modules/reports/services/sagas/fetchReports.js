@@ -23,7 +23,7 @@ async function resolveData(documentSnapshot) {
 }
 
 function* fetchReports(action) {
-    const limit = 20;
+    const limit = 18;
     const { lastKey, filters } = yield action.params;
     try {
         let query = yield firestore.collection('messages');

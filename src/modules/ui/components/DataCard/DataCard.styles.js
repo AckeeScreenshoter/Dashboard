@@ -39,7 +39,9 @@ export const card = ({ theme }) => ({
         },
     },
 });
-
+export const buttonBox = () => ({
+    display: 'flex',
+});
 export const contentWrapper = () => ({
     display: 'flex',
     flexDirection: 'column',
