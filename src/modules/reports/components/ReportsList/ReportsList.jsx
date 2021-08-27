@@ -2,7 +2,7 @@ import React from 'react';
 import { Col } from 'antd';
 
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
-import { DataCard, CardDetail, DataSkeleton } from 'modules/ui';
+import { DataCard, CardDetail } from 'modules/ui';
 
 import useReports from '../../hooks/useReports';
 import { useFetchReports } from 'modules/reports';

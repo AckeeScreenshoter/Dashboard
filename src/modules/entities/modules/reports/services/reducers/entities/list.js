@@ -22,11 +22,16 @@ export default function listReportsReducer(state = initialState, action) {
 
         case types.ADD_NOTE_SUCCESS:
             const { params } = action;
-            return [...state.map(item => (item.id === params.id ? { ...item, note: params.note } : item))];
+            return {
+                data: [...state.data.map(item => (item.id === params.id ? { ...item, note: params.note } : item))],
+                params: { ...state.params },
+            };
 
         case types.DELETE_REPORT_SUCCESS:
             const { meta } = action;
-            return [...state.filter(item => item.id !== meta.id)];
+            return { data: [...state.data.filter(item => item.id !== meta.id)], params: { ...state.params } };
+        case types.FETCH_REPORT_RESET:
+            return initialState;
         default:
             return state;
     }

@@ -1,6 +1,5 @@
 import React from 'react';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
-import PropTypes from 'prop-types';
 import { Col, Row, Card } from 'antd';
 import * as felaRules from './DataSkeleton.styles';
 
@@ -53,12 +52,6 @@ const DataSkeleton = () => {
             </Col>
         </Row>
     );
-};
-
-DataSkeleton.propTypes = {
-    styles: PropTypes.shape({
-        container: PropTypes.string.isRequired,
-    }).isRequired,
 };
 
 export default DataSkeleton;
