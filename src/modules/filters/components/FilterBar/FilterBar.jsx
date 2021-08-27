@@ -14,13 +14,14 @@ const FilterBar = () => {
     const { styles } = useFelaEnhanced(felaRules);
     const intl = useIntl();
 
-    const { fetchReports, inProgress } = useFetchReports();
+    const { fetchReports, resetReports, inProgress } = useFetchReports();
     const { appName, platform, deviceModel } = useFilters();
 
     const [form] = Form.useForm();
 
     const handleChange = form => {
-        fetchReports({ filters: form.getFieldsValue(), lastKey: '', reset: true });
+        resetReports();
+        fetchReports({ filters: form.getFieldsValue(), lastKey: 0 });
     };
 
     const filterProps = [

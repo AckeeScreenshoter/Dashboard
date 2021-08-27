@@ -1,16 +1,14 @@
 import React from 'react';
 import { childrenPropType } from '@ackee/lucas';
 
-import { Loader } from 'modules/ui';
 import { useFetchReports } from 'modules/reports';
+import { useReports } from 'modules/reports';
 
 const ReportsFetcher = ({ children }) => {
-    // React.useEffect(() => {
-    //     fetchReports();
-    //     // eslint-disable-next-line
-    // }, []);
+    const { success } = useFetchReports();
+    const { data } = useReports();
 
-    return children;
+    return data.length === 0 && success ? <h1>Nic jsme nenašli</h1> : children;
 };
 
 ReportsFetcher.propTypes = {

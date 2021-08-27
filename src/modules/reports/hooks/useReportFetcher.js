@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectors, actions } from 'modules/entities/modules/reports';
 import React from 'react';
 
-export default function useFetchReports(id) {
+export default function useFetchReport(id) {
     const dispatch = useDispatch();
     const { cancelled, error, inProgress, lastSuccessAt, success } = useSelector(state =>
         selectors.fetchReportApiSelector(state),

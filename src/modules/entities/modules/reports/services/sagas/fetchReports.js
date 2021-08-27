@@ -23,24 +23,28 @@ async function resolveData(documentSnapshot) {
 }
 
 function* fetchReports(action) {
-    const { lastKey, filters, reset } = yield action.params;
+    const limit = 20;
+    const { lastKey, filters } = yield action.params;
     try {
         let query = yield firestore.collection('messages');
         query = yield applyFilters(query, filters);
         // DO NOT DELETE the limit - it causes exceeding the firebase usage
         const snapshot = yield query
-            .limit(20)
+            .limit(limit)
             .orderBy('date', 'desc')
             .startAfter(lastKey ? lastKey : '')
             .get();
 
         const lastVisible = snapshot.docs[snapshot.docs.length - 1];
+
         const data = yield Promise.all(
             snapshot.docs.map(documentSnapshot => {
                 return resolveData(documentSnapshot);
             }),
         );
-        yield put(actions.fetchReportsSuccess(data, { filters: filters, lastKey: lastVisible, reset: reset }));
+        const hasNext = data.length === 0 ? false : true;
+
+        yield put(actions.fetchReportsSuccess(data, { filters, lastKey: lastVisible, hasNext }));
     } catch (error) {
         log.error(error);
 

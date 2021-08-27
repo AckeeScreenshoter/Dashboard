@@ -2,7 +2,7 @@ import React from 'react';
 import { Col } from 'antd';
 
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
-import { DataCard, CardDetail } from 'modules/ui';
+import { DataCard, CardDetail, DataSkeleton } from 'modules/ui';
 
 import useReports from '../../hooks/useReports';
 import { useFetchReports } from 'modules/reports';
@@ -14,7 +14,7 @@ const ReportsList = () => {
     const { styles } = useFelaEnhanced(felaRules);
     const [detailData, setDetailData] = React.useState(null);
     const { data, params } = useReports();
-    const { fetchReports, inProgress } = useFetchReports();
+    const { fetchReports } = useFetchReports();
 
     const handleCancel = () => {
         setDetailData(null);
@@ -34,18 +34,8 @@ const ReportsList = () => {
 
     return (
         <div className={styles.container}>
-            <InfiniteScrollWrap fetchNext={loadItems} items={items} />
-            {/* {!data.length <= 0 ? (
-                    data.map(message => (
-                        <Col className={styles.item} md={12} lg={8} key={message.date?.seconds}>
-                            <DataCard message={message} onClick={() => setDetailData(message)} />
-                        </Col>
-                    ))
-                ) : (
-                    <h1 className={styles.empty}>
-                        <FormattedMessage id="nothxing.found" />
-                    </h1>
-                )} */}
+            <InfiniteScrollWrap fetchNext={loadItems} items={items} hasNext={params.hasNext} />
+
             {detailData ? <CardDetail visible={!!detailData} onCancel={handleCancel} message={detailData} /> : null}
         </div>
     );

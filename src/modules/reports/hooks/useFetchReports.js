@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectors, actions } from 'modules/entities/modules/reports';
-import React from 'react';
 
 export default function useFetchReports() {
     const dispatch = useDispatch();
@@ -10,7 +9,8 @@ export default function useFetchReports() {
     );
     const defaultParams = {
         filters: { appName: 'All', deviceModel: 'All', platform: 'All' },
-        lastKey: '',
+        lastKey: 0,
+        hasNext: true,
     };
     const resetReports = () => {
         dispatch(actions.fetchReportsReset());
@@ -18,13 +18,13 @@ export default function useFetchReports() {
 
     const fetchReports = customParams => {
         const params = { ...defaultParams, ...customParams };
-        console.log(params);
         if (!inProgress) {
             dispatch(actions.fetchReportsRequest(params));
         }
     };
 
     return {
+        resetReports,
         fetchReports,
         cancelled,
         error,
