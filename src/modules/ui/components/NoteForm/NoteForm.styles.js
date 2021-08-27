@@ -5,15 +5,11 @@ export const TextArea = ({ theme }) => ({
     marginBottom: 0,
 
     borderColor: theme.colors.icon,
-    ':hover': {
-        boxShadow: 'none',
-        borderColor: theme.colors.icon,
-    },
 });
 export const FormItem = () => ({
     marginBottom: 0,
 });
-export const ButtonBox = ({ theme }) => ({
+export const ButtonBox = () => ({
     marginTop: 0,
     display: 'flex',
     justifyContent: 'flex-end',
@@ -21,11 +17,7 @@ export const ButtonBox = ({ theme }) => ({
         border: 'none',
         backgroundColor: 'transparent',
     },
-    '&  .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector':
-        {
-            borderColor: 'red',
-            boxShadow: `5px 5px 20px 0px ${theme.colors.primary}`,
-        },
+
     '& > button': {
         paddingRight: '0',
     },

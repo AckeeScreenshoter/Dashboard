@@ -136,13 +136,13 @@ CardDetail.propTypes = {
     message: PropTypes.shape({
         id: PropTypes.string,
         mediaUploaded: PropTypes.bool,
+        customData: PropTypes.object,
         image: PropTypes.string,
         appName: PropTypes.string,
         date: PropTypes.shape({
             seconds: PropTypes.number,
             nanoseconds: PropTypes.number,
         }),
-        customData: PropTypes.object,
         platform: PropTypes.string,
         deviceMake: PropTypes.string,
         note: PropTypes.string,

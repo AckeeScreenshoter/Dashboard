@@ -1,14 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectors, actions } from 'modules/entities/modules/reports';
-import React from 'react';
 
-export default function useFetchReports(defaultParams) {
+export default function useFetchReports() {
     const dispatch = useDispatch();
 
     const { cancelled, error, inProgress, lastSuccessAt, success } = useSelector(state =>
         selectors.getReportsApiSelector(state),
     );
-
+    const defaultParams = {
+        filters: { appName: 'All', deviceModel: 'All', platform: 'All' },
+        lastKey: 0,
+        hasNext: true,
+    };
     const resetReports = () => {
         dispatch(actions.fetchReportsReset());
     };
@@ -19,14 +22,9 @@ export default function useFetchReports(defaultParams) {
             dispatch(actions.fetchReportsRequest(params));
         }
     };
-    React.useEffect(() => {
-        fetchReports();
-        return resetReports;
-
-        // eslint-disable-next-line
-    }, []);
 
     return {
+        resetReports,
         fetchReports,
         cancelled,
         error,
