@@ -58,3 +58,7 @@ export const screenshot = () => ({
     maxWidth: '65%',
     maxHeight: '80%',
 });
+export const buttonBox = () => ({
+    display: 'flex',
+    justifyContent: 'flex-end',
+});

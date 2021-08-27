@@ -7,7 +7,7 @@ export { default as Report } from './components/Report';
 
 export { default as useDeleteReport } from './hooks/useDeleteReport';
 export { default as useReports } from './hooks/useReports';
-export { default as useReportsFetcher } from './hooks/useReportsFetcher';
+export { default as useFetchReports } from './hooks/useFetchReports';
 export { default as useReportFetcher } from './hooks/useReportFetcher';
 export { default as useReport } from './hooks/useReport';
 export { default as useAddNote } from './hooks/useAddNote';

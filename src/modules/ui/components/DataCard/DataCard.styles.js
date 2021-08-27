@@ -25,6 +25,7 @@ export const card = ({ theme }) => ({
     '&  img': {
         width: '100%',
         height: '14vh',
+        minHeight: '100%',
         objectFit: 'cover',
         borderRadius: theme.borderRadiuses.small,
     },
@@ -38,7 +39,9 @@ export const card = ({ theme }) => ({
         },
     },
 });
-
+export const buttonBox = () => ({
+    display: 'flex',
+});
 export const contentWrapper = () => ({
     display: 'flex',
     flexDirection: 'column',

@@ -5,9 +5,10 @@ export const fetchReportsRequest = params => ({
     params,
 });
 
-export const fetchReportsSuccess = payload => ({
+export const fetchReportsSuccess = (payload, params) => ({
     type: types.FETCH_REPORTS_SUCCESS,
     payload,
+    params,
 });
 
 export const fetchReportsFailure = error => ({
