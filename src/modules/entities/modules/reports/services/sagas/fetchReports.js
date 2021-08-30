@@ -21,9 +21,9 @@ async function resolveData(documentSnapshot) {
     const url = await storage.ref(documentSnapshot.id).getDownloadURL();
     return { ...documentSnapshot.data(), image: url, id: documentSnapshot.id };
 }
+const limit = 18;
 
 function* fetchReports(action) {
-    const limit = 20;
     const { lastKey, filters } = yield action.params;
     try {
         let query = yield firestore.collection('messages');

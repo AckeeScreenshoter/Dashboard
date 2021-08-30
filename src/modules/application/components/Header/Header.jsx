@@ -11,13 +11,16 @@ const Header = () => {
     return (
         <header className={styles.container}>
             <Logo />
-            <Logout />
-            <div>
-                <FormattedMessage id="page.header.madeWithLove" />{' '}
-                <a href="https://ackee.cz" target="_blank" rel="noreferrer">
-                    Ackee
-                </a>
-            </div>
+
+            <nav className={styles.menu}>
+                <div className={styles.text}>
+                    <FormattedMessage id="page.header.madeWithLove" />{' '}
+                    <a href="https://ackee.cz" target="_blank" rel="noreferrer">
+                        Ackee
+                    </a>
+                </div>
+                <Logout />
+            </nav>
         </header>
     );
 };

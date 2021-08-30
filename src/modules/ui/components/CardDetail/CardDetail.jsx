@@ -41,7 +41,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
                 centered
                 getContainer="#modalMount"
                 footer={[
-                    <div key={'id'}>
+                    <div className={styles.buttonBox} key={'id'}>
                         <DeleteButton onCancel={onCancel} id={id} />
                         <Button
                             onClick={() => {
