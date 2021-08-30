@@ -1,18 +1,21 @@
 import React from 'react';
 import { childrenPropType } from '@ackee/lucas';
+import { FormattedMessage } from 'react-intl';
 
-import { Loader } from 'modules/ui';
-import { useReportsFetcher } from 'modules/reports';
+import { useFetchReports } from 'modules/reports';
+import { useReports } from 'modules/reports';
 
 const ReportsFetcher = ({ children }) => {
-    const defaultParams = {
-        appName: 'All',
-        deviceModel: 'All',
-        platform: 'All',
-    };
-    const { success, inProgress } = useReportsFetcher(defaultParams);
+    const { success } = useFetchReports();
+    const { data } = useReports();
 
-    return <Loader show={inProgress || !success}>{children}</Loader>;
+    return data.length === 0 && success ? (
+        <span>
+            <FormattedMessage id={'nothing.found'} />
+        </span>
+    ) : (
+        children
+    );
 };
 
 ReportsFetcher.propTypes = {

@@ -11,7 +11,7 @@ const Report = () => {
     };
 
     const message = useReport();
-    return <CardDetail message={message.shift()} visible onCancel={redirect} />;
+    return <CardDetail message={message} visible onCancel={redirect} />;
 };
 
 export default Report;
