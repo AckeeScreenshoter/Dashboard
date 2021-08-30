@@ -10,9 +10,9 @@ const ReportsFetcher = ({ children }) => {
     const { data } = useReports();
 
     return data.length === 0 && success ? (
-        <h1>
+        <span>
             <FormattedMessage id={'nothing.found'} />
-        </h1>
+        </span>
     ) : (
         children
     );
