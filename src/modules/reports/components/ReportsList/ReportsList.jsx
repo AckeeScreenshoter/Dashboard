@@ -22,20 +22,18 @@ const ReportsList = () => {
     const loadItems = () => {
         fetchReports(params);
     };
-    const items = [];
 
-    data.map(message => {
-        return items.push(
+    const items = React.useMemo(() => {
+        return data.map(message => (
             <Col className={styles.item} md={12} lg={8} key={nanoid()}>
                 <DataCard onClick={() => setDetailData(message)} message={message} />
-            </Col>,
-        );
-    });
+            </Col>
+        ));
+    }, [data, styles.item]);
 
     return (
         <div className={styles.container}>
             <InfiniteScrollWrap fetchNext={loadItems} items={items} hasNext={params.hasNext} />
-
             {detailData ? <CardDetail visible={!!detailData} onCancel={handleCancel} message={detailData} /> : null}
         </div>
     );

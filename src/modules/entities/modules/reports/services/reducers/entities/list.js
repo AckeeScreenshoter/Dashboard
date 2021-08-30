@@ -24,12 +24,12 @@ export default function listReportsReducer(state = initialState, action) {
             const { params } = action;
             return {
                 data: [...state.data.map(item => (item.id === params.id ? { ...item, note: params.note } : item))],
-                params: { ...state.params },
+                params: { ...action.params },
             };
 
         case types.DELETE_REPORT_SUCCESS:
             const { meta } = action;
-            return { data: [...state.data.filter(item => item.id !== meta.id)], params: { ...state.params } };
+            return { ...state, data: [...state.data.filter(item => item.id !== meta.id)] };
         case types.FETCH_REPORT_RESET:
             return initialState;
         default:
