@@ -1,6 +1,6 @@
 import { types } from '../../actions';
 
-const initialState = [];
+const initialState = {};
 
 export default function singleReportsReducer(state = initialState, action) {
     switch (action.type) {
