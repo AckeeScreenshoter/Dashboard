@@ -3,8 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "devDependencies": {
+        "@ackee/eslint-config": "3",
         "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-compat": "^3.12.0",
+        "eslint-plugin-compat": "^4.0.2",
         "husky": "3.x",
         "imagemin-lint-staged": "0.x",
         "lint-staged": "9.x",
@@ -76,7 +77,9 @@
         "production": [
             ">0.2%",
             "not dead",
-            "not op_mini all"
+            "not op_mini all",
+            "not ie 11",
+            "not ios_saf <= 12.5 "
         ],
         "development": [
             "last 1 chrome version",
