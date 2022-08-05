@@ -87,7 +87,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
                                     <FormattedMessage id="card.detail.dateTime" />
                                 </Text>
                                 <Paragraph className={styles.subName}>
-                                    <FormattedDate date={date} />
+                                    <FormattedDate value={date.seconds * 1000} />
                                 </Paragraph>
                             </Col>
                         </div>
