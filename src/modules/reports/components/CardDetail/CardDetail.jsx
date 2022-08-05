@@ -1,15 +1,14 @@
 import React from 'react';
 import { Modal, Typography, Col, Row } from 'antd';
-import { CopyOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
 import { FormattedMessage, FormattedDate } from 'react-intl';
-import config from 'config/index';
+
+import { NoteForm } from 'modules/ui';
+import { DeleteButton } from 'modules/reports';
+import { CopyButton } from 'modules/reports/components/CopyButton';
 
 import * as felaRules from './CardDetail.styles';
-import Button from '../Button';
-import NoteForm from '../NoteForm';
-import { DeleteButton } from 'modules/reports';
 
 const CardDetail = ({ message, onCancel, visible }) => {
     const { styles } = useFelaEnhanced(felaRules);
@@ -43,15 +42,7 @@ const CardDetail = ({ message, onCancel, visible }) => {
                 footer={[
                     <div className={styles.buttonBox} key={'id'}>
                         <DeleteButton onCancel={onCancel} id={id} />
-                        <Button
-                            onClick={() => {
-                                navigator.clipboard.writeText(`${config.appUrl}/s/${id}`);
-                            }}
-                            type="primary"
-                            icon={<CopyOutlined />}
-                        >
-                            <FormattedMessage id="card.button.copy" />
-                        </Button>
+                        <CopyButton id={id} />
                     </div>,
                 ]}
             >

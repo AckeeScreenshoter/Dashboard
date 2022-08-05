@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Typography, Row, Col } from 'antd';
-import { FormattedMessage } from 'react-intl';
 import { format } from 'date-fns';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
-import { AndroidFilled, AppleFilled, CopyOutlined } from '@ant-design/icons';
+import { AndroidFilled, AppleFilled } from '@ant-design/icons';
 
 import DeleteButton from 'modules/reports/components/DeleteButton';
 import * as felaRules from './DataCard.styles';
-import Button from '../Button';
 import videoImg from 'assets/images/thumbnail_vid.png';
-import config from 'config/index';
+import { CopyButton } from 'modules/reports/components/CopyButton';
 
 const DataCard = ({ message, onClick }) => {
     const { styles } = useFelaEnhanced(felaRules);
@@ -36,17 +34,7 @@ const DataCard = ({ message, onClick }) => {
                         {note && <Typography.Paragraph>{note}</Typography.Paragraph>}
                         <div onClick={e => e.stopPropagation()} className={styles.buttonBox}>
                             <DeleteButton id={id} />
-
-                            <Button
-                                htmlType="button"
-                                type="primary"
-                                onClick={() => {
-                                    navigator.clipboard.writeText(`${config.appUrl}/s/${id}`);
-                                }}
-                                icon={<CopyOutlined />}
-                            >
-                                <FormattedMessage id="card.button.copy" />
-                            </Button>
+                            <CopyButton id={id} />
                         </div>
                     </div>
                 </Col>

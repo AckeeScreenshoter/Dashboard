@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import useReport from '../../hooks/useReport';
-import { CardDetail } from 'modules/ui';
+import CardDetail from '../CardDetail';
 
 const Report = () => {
     const history = useHistory();

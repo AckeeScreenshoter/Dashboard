@@ -42,6 +42,7 @@ export const card = ({ theme }) => ({
 export const buttonBox = () => ({
     display: 'flex',
 });
+
 export const contentWrapper = () => ({
     display: 'flex',
     flexDirection: 'column',
@@ -60,6 +61,6 @@ export const cardHeader = ({ theme }) => ({
     justifyContent: 'space-between',
 
     '& > .anticon': {
-        color: theme.colors.icon,
+        color: theme.colors.black,
     },
 });
