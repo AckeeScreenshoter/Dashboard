@@ -46,9 +46,12 @@ export const buttonBox = () => ({
 export const contentWrapper = () => ({
     display: 'flex',
     flexDirection: 'column',
-    paddingLeft: '1rem',
     justifyContent: 'space-between',
     height: '100%',
+
+    tablet: {
+        paddingLeft: '1rem',
+    },
 });
 
 export const createdAt = ({ theme }) => ({
