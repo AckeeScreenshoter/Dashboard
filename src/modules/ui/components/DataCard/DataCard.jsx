@@ -27,7 +27,7 @@ const DataCard = ({ message, onClick }) => {
                         <div className={styles.cardHeader}>
                             <div>
                                 <Typography.Text className={styles.createdAt}>
-                                    {format(date.seconds * 1000, 'dd. mm. yyyy, HH:mm')}
+                                    {format(date.seconds * 1000, 'dd. MM. yyyy, HH:mm')}
                                 </Typography.Text>
                                 <Typography.Title level={3}>{appName}</Typography.Title>
                             </div>
