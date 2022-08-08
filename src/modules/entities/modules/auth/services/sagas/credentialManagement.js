@@ -1,6 +1,7 @@
 import * as Consts from 'constants/index';
 import * as sagaEffects from 'redux-saga/effects';
 import { AuthProviders } from 'config/firebase';
+import * as logger from 'config/loglevel';
 
 import { signInRequest } from '../actions';
 
@@ -9,24 +10,29 @@ const { put } = sagaEffects;
 const GOOGLE_PROVIDER = 'https://accounts.google.com';
 
 export function* autoSignIn(mediation = 'optional') {
-    const credentials = yield navigator.credentials.get({
-        federated: {
-            providers: [GOOGLE_PROVIDER],
-        },
-        mediation,
-    });
-
-    if (credentials && credentials.type === 'federated' && credentials.provider === GOOGLE_PROVIDER) {
-        AuthProviders.google.setCustomParameters({
-            LOGIN_HINT: credentials.id,
+    try {
+        const credentials = yield navigator.credentials.get({
+            federated: {
+                providers: [GOOGLE_PROVIDER],
+            },
+            mediation,
         });
 
-        yield put(signInRequest());
+        if (credentials?.type === 'federated' && credentials?.provider === GOOGLE_PROVIDER) {
+            AuthProviders.google.setCustomParameters({
+                LOGIN_HINT: credentials.id,
+            });
 
-        return true;
+            yield put(signInRequest());
+
+            return true;
+        }
+
+        return false;
+    } catch (error) {
+        logger.warn(error);
+        return false;
     }
-
-    return false;
 }
 
 export function* storeCredentials({ displayName, email, photoURL }) {
