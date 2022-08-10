@@ -1,16 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Typography, Row, Col } from 'antd';
-import { FormattedMessage } from 'react-intl';
 import { format } from 'date-fns';
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
-import { AndroidFilled, AppleFilled, CopyOutlined } from '@ant-design/icons';
+import { AndroidFilled, AppleFilled } from '@ant-design/icons';
 
-import DeleteButton from 'modules/reports/components/DeleteButton';
+import { CopyButton, DeleteButton } from 'modules/reports';
 import * as felaRules from './DataCard.styles';
-import Button from '../Button';
 import videoImg from 'assets/images/thumbnail_vid.png';
-import config from 'config/index';
 
 const DataCard = ({ message, onClick }) => {
     const { styles } = useFelaEnhanced(felaRules);
@@ -18,7 +15,7 @@ const DataCard = ({ message, onClick }) => {
 
     return (
         <Card onClick={onClick} hoverable className={styles.card}>
-            <Row>
+            <Row gutter={[0, 16]}>
                 <Col xs={{ span: 24 }} xxl={{ span: 7 }} xl={{ span: 8 }}>
                     <img src={image && mediaUploaded ? image : videoImg} alt={appName} />
                 </Col>
@@ -27,7 +24,7 @@ const DataCard = ({ message, onClick }) => {
                         <div className={styles.cardHeader}>
                             <div>
                                 <Typography.Text className={styles.createdAt}>
-                                    {format(date.seconds * 1000, 'dd. mm. yyyy, HH:mm')}
+                                    {format(date.seconds * 1000, 'dd. MM. yyyy, HH:mm')}
                                 </Typography.Text>
                                 <Typography.Title level={3}>{appName}</Typography.Title>
                             </div>
@@ -36,17 +33,7 @@ const DataCard = ({ message, onClick }) => {
                         {note && <Typography.Paragraph>{note}</Typography.Paragraph>}
                         <div onClick={e => e.stopPropagation()} className={styles.buttonBox}>
                             <DeleteButton id={id} />
-
-                            <Button
-                                htmlType="button"
-                                type="primary"
-                                onClick={() => {
-                                    navigator.clipboard.writeText(`${config.appUrl}/s/${id}`);
-                                }}
-                                icon={<CopyOutlined />}
-                            >
-                                <FormattedMessage id="card.button.copy" />
-                            </Button>
+                            <CopyButton id={id} />
                         </div>
                     </div>
                 </Col>

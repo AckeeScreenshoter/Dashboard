@@ -15,5 +15,10 @@ export const menu = () => ({
     alignItems: 'center',
 });
 export const text = () => ({
+    display: 'none',
     marginRight: '2rem',
+
+    tablet: {
+        display: 'block',
+    },
 });

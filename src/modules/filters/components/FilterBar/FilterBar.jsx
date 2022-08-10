@@ -29,16 +29,31 @@ const FilterBar = () => {
             name: 'appName',
             options: [intl.formatMessage({ id: 'all' })].concat(appName),
             label: intl.formatMessage({ id: 'filters.appName' }),
+            col: {
+                xs: 24,
+                sm: 8,
+                lg: 3,
+            },
         },
         {
             name: 'platform',
             options: [intl.formatMessage({ id: 'all' })].concat(platform),
             label: intl.formatMessage({ id: 'filters.platform' }),
+            col: {
+                xs: 12,
+                sm: 8,
+                lg: 3,
+            },
         },
         {
             name: 'deviceModel',
             options: [intl.formatMessage({ id: 'all' })].concat(deviceModel),
             label: intl.formatMessage({ id: 'filters.deviceModel' }),
+            col: {
+                xs: 12,
+                sm: 8,
+                lg: 3,
+            },
         },
     ];
 
@@ -58,7 +73,7 @@ const FilterBar = () => {
             >
                 <Row gutter={16} className={styles.row}>
                     {filterProps.map(select => (
-                        <Col key={nanoid()} span={8} lg={3}>
+                        <Col key={nanoid()} {...select.col}>
                             <Form.Item className={styles.formItem} label={select.label} name={select.name}>
                                 <Select
                                     className={styles.select}

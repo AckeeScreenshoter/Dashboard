@@ -6,8 +6,8 @@ import { childrenPropType } from '@ackee/lucas';
 
 import * as felaRules from './Button.styles';
 
-const Button = ({ children, type, ...rest }) => {
-    const { styles } = useFelaEnhanced(felaRules, { type });
+const Button = ({ children, type, extend, ...rest }) => {
+    const { styles } = useFelaEnhanced(felaRules, { type, extend });
 
     return (
         <AntButton className={styles.button} {...rest}>
@@ -18,6 +18,7 @@ const Button = ({ children, type, ...rest }) => {
 
 Button.propTypes = {
     children: childrenPropType.isRequired,
+    extend: PropTypes.object,
     type: PropTypes.string,
 };
 

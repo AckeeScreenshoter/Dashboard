@@ -2,8 +2,9 @@ import React from 'react';
 import { Col } from 'antd';
 
 import useFelaEnhanced from 'hooks/useFelaEnhanced';
-import { DataCard, CardDetail } from 'modules/ui';
+import { DataCard } from 'modules/ui';
 
+import CardDetail from '../CardDetail';
 import useReports from '../../hooks/useReports';
 import { useFetchReports } from 'modules/reports';
 import InfiniteScrollWrap from '../InfiniteScroll';

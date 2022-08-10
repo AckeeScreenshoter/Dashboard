@@ -42,12 +42,16 @@ export const card = ({ theme }) => ({
 export const buttonBox = () => ({
     display: 'flex',
 });
+
 export const contentWrapper = () => ({
     display: 'flex',
     flexDirection: 'column',
-    paddingLeft: '1rem',
     justifyContent: 'space-between',
     height: '100%',
+
+    tablet: {
+        paddingLeft: '1rem',
+    },
 });
 
 export const createdAt = ({ theme }) => ({
@@ -60,6 +64,6 @@ export const cardHeader = ({ theme }) => ({
     justifyContent: 'space-between',
 
     '& > .anticon': {
-        color: theme.colors.icon,
+        color: theme.colors.black,
     },
 });

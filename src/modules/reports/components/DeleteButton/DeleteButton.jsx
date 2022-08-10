@@ -14,7 +14,7 @@ const DeleteButton = ({ id, onCancel }) => {
         }
     };
     return (
-        <Button onClick={handleClick}>
+        <Button onClick={handleClick} type="secondary">
             <FormattedMessage id="button.delete" />
         </Button>
     );
