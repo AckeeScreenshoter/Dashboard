@@ -34,7 +34,7 @@
         "fela-plugin-named-keys": "^11.6.0",
         "fela-plugin-unit": "^11.6.0",
         "fela-plugin-validator": "^11.6.0",
-        "firebase": "^8.9.1",
+        "firebase": "^8.10.1",
         "nanoid": "^3.1.25",
         "prop-types": "^15.7.2",
         "react": "^17.0.1",
@@ -78,8 +78,7 @@
             ">0.2%",
             "not dead",
             "not op_mini all",
-            "not ie 11",
-            "not ios_saf <= 12.5 "
+            "not ie 11"
         ],
         "development": [
             "last 1 chrome version",
