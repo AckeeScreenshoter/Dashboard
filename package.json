@@ -3,9 +3,6 @@
     "version": "0.1.0",
     "private": true,
     "devDependencies": {
-        "@ackee/eslint-config": "3",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-compat": "^4.0.2",
         "husky": "3.x",
         "imagemin-lint-staged": "0.x",
         "lint-staged": "9.x",
@@ -14,6 +11,7 @@
     },
     "dependencies": {
         "@ackee/antonio-utils": "^4.0.0-beta.0",
+        "@ackee/eslint-config": "3",
         "@ackee/chris": "2.x",
         "@ackee/jerome": "^4.1.0",
         "@ackee/lucas": "^0.3.1",
@@ -28,6 +26,8 @@
         "connected-react-router": "^6.9.1",
         "craco-less": "^1.18.0",
         "date-fns": "^2.22.1",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-compat": "^4.0.2",
         "fela": "^11.6.0",
         "fela-monolithic": "^11.6.0",
         "fela-plugin-friendly-pseudo-class": "^11.6.0",
